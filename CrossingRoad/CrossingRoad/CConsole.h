@@ -61,5 +61,9 @@ void TextColor(int color);
 void ShowConsoleCursor(bool showFlag);
 
 // Ẩn con trỏ chuột
-void DisableMouse();
+// void DisableMouse();
+
+
+// Xoá màn hình
+void clrscr();
 
