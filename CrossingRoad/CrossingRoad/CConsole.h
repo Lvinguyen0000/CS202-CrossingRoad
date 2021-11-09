@@ -28,10 +28,10 @@ using namespace std;
 #define default_ColorCode		7
 
 
-#define key_Up		1072
-#define key_Down	1080
-#define key_Left	1075
-#define key_Right	1077
+#define KEY_UP		72
+#define KEY_DOWN	80
+#define KEY_LEFT	75
+#define KEY_RIGHT	77
 #define key_none	-1
 
 
@@ -61,7 +61,7 @@ void TextColor(int color);
 void ShowConsoleCursor(bool showFlag);
 
 // Ẩn con trỏ chuột
-// void DisableMouse();
+void DisableMouse();
 
 
 // Xoá màn hình

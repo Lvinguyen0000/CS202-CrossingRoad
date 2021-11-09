@@ -80,11 +80,10 @@ void TextColor(int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
-//void DisableMouse() {
-//	DWORD prev_mode;
-//	_In_ HANDLE hConsoleHandle;
-//	_Out_ LPDWORD lpMode;
-//	GetConsoleMode(hConsoleHandle, &prev_mode);
-//	SetConsoleMode(hConsoleHandle, prev_mode & ~ENABLE_QUICK_EDIT_MODE);
-//}
+void DisableMouse() {
+	CONSOLE_CURSOR_INFO Info;
+	Info.bVisible = FALSE;
+	Info.dwSize = 20;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
+}
 

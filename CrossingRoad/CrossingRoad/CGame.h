@@ -14,13 +14,13 @@ class CGame {
 	//CCar* axh;
 	//CDinausor* akl;
 	//CBird* ac;
-	//CPeople cn;
+	CPeople cn;
 	const int width = 90, height = 30;
 public:
 	CGame();
 	void drawGame();
 	~CGame() = default;
-	//CPeople getPeople();
+	CPeople getPeople();
 	//CVehicle* getVehicle();
 	//CAnimal* getAnimal();
 	//void resetGame();

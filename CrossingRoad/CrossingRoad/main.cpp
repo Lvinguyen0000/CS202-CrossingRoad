@@ -8,8 +8,7 @@ int main() {
 
 	MoveWindow(console, r.left, r.top, 960, 630, TRUE);
 	FixConsoleWindow();
+	DisableMouse();
 	CGame game;
 	game.drawGame();
-
-	_getch();
 }
