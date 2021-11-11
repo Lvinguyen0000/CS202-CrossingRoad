@@ -15,6 +15,7 @@ class CGame {
 	//CDinausor* akl;
 	//CBird* ac;
 	CPeople cn;
+	CDinausor cd;
 	const int width = 90, height = 30;
 public:
 	CGame();
