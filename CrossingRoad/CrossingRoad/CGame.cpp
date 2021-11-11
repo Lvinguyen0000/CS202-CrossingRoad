@@ -15,8 +15,18 @@ void CGame::drawGame() {
 
 	cn.drawPeople();
 	int move; // 1: UP 2: DOWN 3: RIGHT 4:LEFT
+	
+	int run = 1;
 
 	while (true) {
+		
+		if (run < 90) {
+			cd.Move(run, 10);
+			Sleep(10);
+			run++;
+		}
+		else run = 1;
+		
 		move = -1;
 		if (_kbhit()) {
 			char KEY = _getch();
