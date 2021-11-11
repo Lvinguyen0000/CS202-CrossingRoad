@@ -5,6 +5,6 @@ class CAnimal {
 	private:
 		int mX, mY;
 	public:
-		virtual void Move(int, int);
+		virtual void Move(int, int) = 0;
 };
 
