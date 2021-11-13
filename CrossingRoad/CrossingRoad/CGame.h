@@ -16,6 +16,8 @@ class CGame {
 	CBird ac;
 	CPeople cn;
 	CDinausor cd;
+	CTruck truck;
+	CCar car;
 	const int width = 90, height = 30;
 public:
 	CGame();
