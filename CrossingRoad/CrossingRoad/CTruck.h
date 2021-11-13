@@ -3,10 +3,10 @@
 
 class CTruck: public CVehicle {
 public:
-	Ctruck();
-	~Ctruck();
+	CTruck();
+	~CTruck();
 	void Move(int, int);
-	private:
-char** a;
+private:
+	char** a;
 };
 
