@@ -37,9 +37,7 @@ void CBird::Move(int x, int y) {
 	}
 }
 
-void CBird::Tell() {
-	PlaySound(TEXT(""), NULL, SND_FILENAME | SND_ASYNC);
-}
+
 
 bool CBird::isOut(int x) {
 	return (x >= 55);

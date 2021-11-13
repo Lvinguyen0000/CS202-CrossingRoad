@@ -1,5 +1,6 @@
 #include "CCar.h"
-CCar::CCar {
+using namespace std;
+CCar::CCar() {
   	a = new char* [3];
 	for (int i = 0; i < 3; i++) {
 		a[i] = new char[8];
@@ -32,12 +33,12 @@ CCar::~CCar() {
 	}
 	delete a;
 }
-CCar::Move(int x, int y) {
+void CCar::Move(int x, int y) {
 	if (x > 83 || y > 21) return;
 	for (int i = 0; i < 3; i++) {
-		gotoXY(x + i, y);
+		GotoXY(x + i, y);
 		for (int j = 0; j < 8; j++) {
-			gotoXY(x + j, y + i);
+			GotoXY(x + j, y + i);
 			cout << a[i][j];
 		}
 	}

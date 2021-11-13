@@ -30,12 +30,12 @@ CTruck::~CTruck() {
 	}
 	delete a;
 }
-CTruck::Move(int x, int y) {
+void CTruck::Move(int x, int y) {
 	if (x > 83 || y > 16) return;
 	for (int i = 0; i < 3; i++) {
-		gotoXY(x + i, y);
+		GotoXY(x + i, y);
 		for (int j = 0; j < 8; j++) {
-			gotoXY(x + j, y + i);
+			GotoXY(x + j, y + i);
 			cout << a[i][j];
 		}
 	}
