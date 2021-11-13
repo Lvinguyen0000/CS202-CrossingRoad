@@ -24,4 +24,13 @@ Ctruck::Ctruck() {
 	a[2][1] = '*';
 	a[2][4] = '*';
 }
-Ctruck::Move(int, int) {}
+Ctruck::Move(int, int) {
+	if (x > 83 || y > 21) return;
+	for (int i = 0; i < 3; i++) {
+		gotoXY(x + i, y);
+		for (int j = 0; j < 8; j++) {
+			gotoXY(x + j, y + i);
+			cout << a[i][j];
+		}
+	}
+}
