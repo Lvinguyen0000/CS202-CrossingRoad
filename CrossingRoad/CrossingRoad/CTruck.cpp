@@ -1,5 +1,5 @@
 #include "CTruck.h"
-Ctruck::Ctruck() {
+CTruck::CTruck() {
   	a = new char* [3];
 	for (int i = 0; i < 3; i++) {
 		a[i] = new char[8];
@@ -24,14 +24,14 @@ Ctruck::Ctruck() {
 	a[2][1] = '*';
 	a[2][4] = '*';
 }
-Ctruck::~Ctruck() {
+CTruck::~CTruck() {
 	for(int i=0; i< 3; i++) {
 		delete[] a[i];
 	}
 	delete a;
 }
-Ctruck::Move(int x, int y) {
-	if (x > 83 || y > 17) return;
+CTruck::Move(int x, int y) {
+	if (x > 83 || y > 16) return;
 	for (int i = 0; i < 3; i++) {
 		gotoXY(x + i, y);
 		for (int j = 0; j < 8; j++) {
