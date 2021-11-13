@@ -3,6 +3,8 @@
 
 class CTruck: public CVehicle {
 	public:
-
+Ctruck();
+~Ctruck();
+void Move(int, int);
 };
 
