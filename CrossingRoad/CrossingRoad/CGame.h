@@ -13,7 +13,7 @@ class CGame {
 	//CTruck* axt;
 	//CCar* axh;
 	//CDinausor* akl;
-	//CBird* ac;
+	CBird ac;
 	CPeople cn;
 	CDinausor cd;
 	const int width = 90, height = 30;
