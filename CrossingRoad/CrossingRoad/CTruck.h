@@ -2,9 +2,11 @@
 #include "CVehicle.h"
 
 class CTruck: public CVehicle {
-	public:
-Ctruck();
-~Ctruck();
-void Move(int, int);
+public:
+	Ctruck();
+	~Ctruck();
+	void Move(int, int);
+	private:
+char** a;
 };
 
