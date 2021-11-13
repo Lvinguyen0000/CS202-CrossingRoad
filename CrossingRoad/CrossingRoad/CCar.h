@@ -2,11 +2,11 @@
 #include "CVehicle.h"
 
 class CCar : public CVehicle{
-	public:
+public:
 	CCar();
 	~CCar();
-	Move(int x, int y);
-	private:
+	void Move(int x, int y);
+private:
 	char** a;
 };
 
