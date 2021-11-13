@@ -31,7 +31,7 @@ Ctruck::~Ctruck() {
 	delete a;
 }
 Ctruck::Move(int x, int y) {
-	if (x > 83 || y > 21) return;
+	if (x > 83 || y > 17) return;
 	for (int i = 0; i < 3; i++) {
 		gotoXY(x + i, y);
 		for (int j = 0; j < 8; j++) {
