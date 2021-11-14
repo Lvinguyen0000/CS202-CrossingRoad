@@ -1,6 +1,6 @@
 #pragma once
 #include "CConsole.h"
-#include<iostream>
+#include <iostream>
 using namespace std;
 class CAnimal {
 	private:
