@@ -31,9 +31,24 @@ void CBird::Move(int x, int y) {
 	for (int i = 0; i < 2; i++) {
 		for (int j = 0; j < 3; j++) {
 			GotoXY(x + j, y + i + 1);
-			cout << b[i][j];
+			if (x + i + 4 >= 90 || x + i - 4 <= 0) {
+				cout << ' ';
+				for (int k = 6; k < 9; k++) {
+					GotoXY(91, k);
+					cout << '|';
+				}
+			}
+			else {
+				cout << b[i][j];
+			}
 		}
 		cout << endl;
+	}
+	if (x != 1) {
+		for (int i = 1; i < 4; i++) {
+			GotoXY(x - 1, y + i);
+			cout << ' ';
+		}
 	}
 }
 
