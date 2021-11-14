@@ -22,6 +22,7 @@ void CGame::drawGame() {
 		
 		if (run < 90) {
 			cd.Move(run, 10);
+			ac.Move(run, 6);
 			Sleep(10);
 			run++;
 		}
