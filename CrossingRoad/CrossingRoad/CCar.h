@@ -1,8 +1,8 @@
 #pragma once
 #include "CVehicle.h"
-#include"CConsole.h"
+#include "CConsole.h"
 
-class CCar : public CVehicle{
+class CCar : public CVehicle {
 public:
 	CCar();
 	~CCar();
