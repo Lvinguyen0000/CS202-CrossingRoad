@@ -8,7 +8,7 @@
 #define row1Y 7
 #define row2Y 12
 #define row3Y 17
-#define row4y 22
+#define row4Y 22
 //etimate do ko nho do cao tung dong
 
 class CRoad

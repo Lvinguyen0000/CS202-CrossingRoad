@@ -1,9 +1,10 @@
 #pragma once
-#include<iostream>
+#include <iostream>
+#include "CObstacle.h"
 using namespace std;
-class CVehicle {
-	private:
-		int mX, mY;
+
+
+class CVehicle : public CObstacle {
 	public:
 		virtual void Move(int, int) = 0;
 };
