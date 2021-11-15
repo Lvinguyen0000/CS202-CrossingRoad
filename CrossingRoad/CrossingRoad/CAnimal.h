@@ -4,8 +4,8 @@
 
 class CAnimal : public CObstacle {
 	public:
-		virtual void Move();
-		virtual void Draw();
+		virtual void Move() = 0;
+		virtual void Draw() = 0;
 		//void Tell();
 };
 

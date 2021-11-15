@@ -6,8 +6,7 @@ using namespace std;
 
 class CVehicle : public CObstacle {
 	public:
-		virtual void Move();
-		virtual void Draw();
-
+		virtual void Move() = 0;
+		virtual void Draw() = 0;
 };
 
