@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include "CObstacle.h"
+#include"CConsole.h"
 
 using namespace std;
 

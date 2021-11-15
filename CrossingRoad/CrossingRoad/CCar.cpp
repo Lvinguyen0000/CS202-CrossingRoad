@@ -8,7 +8,7 @@ void CCar::Move() {
 
 }
 void CCar::Draw() {
-	if ()
+	//if ()
 }
 	//a = new char* [3];
 	//for (int i = 0; i < 3; i++) {

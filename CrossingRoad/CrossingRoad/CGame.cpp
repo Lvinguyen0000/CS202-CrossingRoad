@@ -19,7 +19,7 @@ void CGame::drawGame() {
 	//int run = 1;
 	
 	while (true) {
-		road.drawNextState();
+		//road.drawNextState();
 		Sleep(50);
 
 		/*if (run < 90) {

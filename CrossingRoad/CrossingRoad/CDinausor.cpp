@@ -26,7 +26,7 @@ void CDinausor::drawDinoreverse(int x, int y) {
 
 
 void CDinausor::Move(int x, int y, bool direction) {
-	CAnimal::Move(x, y, direction);
+	//CAnimal::Move(x, y, direction);
 	string del[3] = { " "," "," " };
 	string end[3] = { "    ","     ","     " };
 	if (direction) {

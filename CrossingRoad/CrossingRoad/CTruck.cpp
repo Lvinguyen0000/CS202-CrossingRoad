@@ -1,7 +1,7 @@
 #include "CTruck.h"
 void CTruck::DrawTruck(int x, int y) {
 	string truck[3] = {
-	" ___|\\_",//8
+	" ___|\\_",//7
 	"|___|_|",//7
 	" *  *",//5
 	};
@@ -13,23 +13,17 @@ void CTruck::DrawTruck(int x, int y) {
 }
 void CTruck::DrawTruckReserve(int x, int y) {
 	string truck[3] = {
-	" _/|___ ",
-	" |_|___|",
-	"   *  *",
+	"_/|___",
+	"|_|___|",
+	"  *  * ",
 	};
 	for (int i = 0; i < 3; i++) {
 		GotoXY(x, y + i);
 		cout << truck[i];
 	}
 }
-CTruck::~CTruck() {
-	for(int i=0; i< 3; i++) {
-		delete[] a[i];
-	}
-	delete a;
-}
 
-void CTruck::Move(int x, int y) {
+void CTruck::Move() {
 	//for (int i = 0; i < 3; i++) {
 	//	for (int j = 0; j < 8; j++) {
 	//		GotoXY(x + j, y + i);
@@ -51,10 +45,10 @@ void CTruck::Move(int x, int y) {
 	//}
 	//cout << endl;
 
-	CVehicle::Move(x, y);
-	string del[3] = { " ", " ", " " };
-	string end[3] = {"        ","       ","     "};
-	if (CVehicle::DIRECTION()) {
+	//CObstacle::Move();
+	int x = this->mX;
+	int y = this->mY;
+	if (this->direction == true) {
 		string del[3] = { " ", " ", " " };
 		string end[3] = { "        ","       ","     " };
 		if (x < 1) return;
@@ -83,5 +77,32 @@ void CTruck::Move(int x, int y) {
 		}
 		else if (x > 84) return;
 	}
-
+	else {
+		string del[3] = { " ", " ", " " };
+		string end[3] = { "       ","        ","        " };
+		if (x >= 84) return;
+		else if (x == 83) {
+			GotoXY(x, y);
+			DrawTruckReserve(x, y);
+			Sleep(20);
+		}
+		else if (x > 0 && x < 83) {
+			int oldX = x + 1, curX = x;
+			GotoXY(curX, y);
+			DrawTruckReserve(curX, y);
+			for (int i = 0; i < 3; i++) {
+				GotoXY(x + 7, y + i);
+				cout << del[i];
+			}
+			Sleep(20);
+		}
+		else if (x == 0) {
+			for (int i = 0; i < 3; i++) {
+				GotoXY(x + 1, y + i);
+				cout << end[i];
+			}
+		}
+	}
 }
+
+

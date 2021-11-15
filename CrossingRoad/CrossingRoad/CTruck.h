@@ -9,9 +9,8 @@ class CTruck: protected CObstacle {
 public:
 	void DrawTruck(int x, int y);
 	void DrawTruckReserve(int x, int y);
-	~CTruck();
-	void Move(int, int);
+	void Move();
 private:
-	char** a;
+	
 };
 
