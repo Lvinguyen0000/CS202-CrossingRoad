@@ -5,8 +5,7 @@ private:
 	int mX, mY;
 public:
 	bool direction = true;
-	virtual void Move(int, int);
-	virtual bool DIRECTION();
+	virtual void Move(int, int, bool);
 
 	void setX(int x) {
 		mX = x;

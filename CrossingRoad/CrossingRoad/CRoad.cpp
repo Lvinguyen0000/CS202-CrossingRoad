@@ -29,7 +29,7 @@ void CRoad::drawNextState() {
 			for (int i = 0; i < obs2.size(); i++) {
 				int x = obs2[i]->getX();
 				if (x < 90) {
-					obs2[i]->Move(x, obs2[i]->getY());
+					obs2[i]->Move(x, obs2[i]->getY(), road2dec);
 					obs2[i]->setX(++x);
 				}
 				else {
@@ -51,7 +51,7 @@ void CRoad::drawNextState() {
 			for (int i = 0; i < obs2.size(); i++) {
 				int x = obs2[i]->getX();
 				if (x > 0) {
-					obs2[i]->Move(x, obs2[i]->getY());
+					obs2[i]->Move(x, obs2[i]->getY(), road2dec);
 					obs2[i]->setX(--x);
 				}
 				else {

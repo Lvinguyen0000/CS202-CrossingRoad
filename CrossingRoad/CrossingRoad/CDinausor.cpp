@@ -25,11 +25,11 @@ void CDinausor::drawDinoreverse(int x, int y) {
 }
 
 
-void CDinausor::Move(int x, int y) {
-	CAnimal::Move(x, y);
+void CDinausor::Move(int x, int y, bool direction) {
+	CAnimal::Move(x, y, direction);
 	string del[3] = { " "," "," " };
-	string end[3] = { "    ","     ","    " };
-	if (CAnimal::DIRECTION()) {
+	string end[3] = { "    ","     ","     " };
+	if (direction) {
 		if (x == 84) {
 			for (int i = 0; i < 3; i++) {
 				GotoXY(x, y + i);
