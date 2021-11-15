@@ -1,11 +1,11 @@
 #pragma once
-#include "CAnimal.h"
+#include "CObstacle.h"
 
-class CDinausor : public CAnimal {
+class CDinausor : protected CObstacle {
 public:
 	void drawDino(int, int);
 	void drawDinoreverse(int, int);
-	void Move(int, int);
+	void Move(int, int, bool);
 	void Tell() {}
 };
 

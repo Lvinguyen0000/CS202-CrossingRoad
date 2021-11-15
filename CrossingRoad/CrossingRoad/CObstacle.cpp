@@ -1,10 +1,9 @@
 #include "CObstacle.h"
 
-void CObstacle::Move(int x, int y) {
-	mX = x;
-	mY = y;
-}
-
-bool CObstacle::DIRECTION() {
-	return direction;
+CObstacle::CObstacle(int x = 0, int y = 0, bool direction = 0, bool light = 0, int speed = 0) {
+	this->mX = x;
+	this->mY = y;
+	this->direction = direction;
+	this->light = light;
+	this->speed = speed;
 }

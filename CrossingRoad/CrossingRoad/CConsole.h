@@ -63,7 +63,6 @@ void ShowConsoleCursor(bool showFlag);
 // Ẩn con trỏ chuột
 void DisableMouse();
 
-
 // Xoá màn hình
 void clrscr();
 
