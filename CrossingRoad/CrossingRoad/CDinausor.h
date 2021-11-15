@@ -1,12 +1,12 @@
-#include "CAnimal.h"
 #pragma once
+#include "CAnimal.h"
 
 class CDinausor : public CAnimal {
 public:
-	CDinausor();
+	void drawDino(int, int);
+	void drawDinoreverse(int, int);
 	void Move(int, int);
-	~CDinausor();
-private:
-	char** a;
+	void Tell() {}
 };
+
 

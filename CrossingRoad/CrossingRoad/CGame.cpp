@@ -16,11 +16,13 @@ void CGame::drawGame() {
 	cn.drawPeople();
 	int move; // 1: UP 2: DOWN 3: RIGHT 4:LEFT
 	
-	int run = 1, run1 = 1, run2 = 1;
+	//int run = 1, run1 = 1, run2 = 1;
 	
 	while (true) {
-		
-		if (run < 90) {
+		road.drawNextState();
+		Sleep(50);
+
+		/*if (run < 90) {
 			cd.Move(run, 10);
 			ac.Move(run, 6);
 			Sleep(10);
@@ -38,7 +40,7 @@ void CGame::drawGame() {
 			car.Move(run1, 22);
 			run2++;
 		}
-		else run2 = 1;
+		else run2 = 1;*/
 
 		move = -1;
 

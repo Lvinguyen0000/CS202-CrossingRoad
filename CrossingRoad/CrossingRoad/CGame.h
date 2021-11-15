@@ -6,6 +6,7 @@
 #include "CVehicle.h"
 #include "CTruck.h"
 #include "CCar.h"
+#include "CRoad.h"
 #include "CConsole.h"
 
 
@@ -13,11 +14,12 @@ class CGame {
 	//CTruck* axt;
 	//CCar* axh;
 	//CDinausor* akl;
-	CBird ac;
+	//CBird ac;
 	CPeople cn;
-	CDinausor cd;
-	CTruck truck;
-	CCar car;
+	//CDinausor cd;
+	//CTruck truck;
+	//CCar car;
+	CRoad road;
 	const int width = 90, height = 30;
 public:
 	CGame();

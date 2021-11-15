@@ -1,56 +1,74 @@
 #include "CDinausor.h"
 
-CDinausor::CDinausor() {
-	a = new char* [3];
-	for (int i = 0; i < 3; i++)
-	{
-		a[i] = new char[4];
+void CDinausor::drawDino(int x, int y) {
+	string dino[3] = {
+		"  /'",
+		" []}.",
+		"/| |",
+	};
+	for (int i = 0; i < 3; i++) {
+		GotoXY(x, y + i);
+		cout << dino[i];
 	}
-
-	a[0][0] = ' ';
-	a[0][1] = ' ';
-	a[0][2] = '/';
-	a[0][3] = '^';
-
-	a[1][0] = ' ';
-	a[1][1] = (char)220;
-	a[1][2] = (char)219;
-	a[1][3] = (char)221;
-
-	a[2][0] = '/';
-	a[2][1] = '|';
-	a[2][2] = ' ';
-	a[2][3] = '|';
 }
-CDinausor::~CDinausor(){
-	for (int i = 0; i < 3; i++)
-	{
-		delete[] a[i];
+
+void CDinausor::drawDinoreverse(int x, int y) {
+	string dino[3] = {
+		" '\\ ",
+		".{[] ",
+		" | |\\ ",
+	};
+	for (int i = 0; i < 3; i++) {
+		GotoXY(x, y + i);
+		cout << dino[i];
 	}
-	delete[] a;
 }
+
 
 void CDinausor::Move(int x, int y) {
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 4; j++) {
-			GotoXY(x + j, y + i + 1);
-			if (x + i + 4 >= 90 || x +i - 4 <= 0) {
-				cout << ' ';
-				for (int k = 11; k < 15; k++) {
-					GotoXY(91, k);
-					cout << '|';
-				}
-			}
-			else {
-				cout << a[i][j];
+	CAnimal::Move(x, y);
+	string del[3] = { " "," "," " };
+	string end[3] = { "    ","     ","    " };
+	if (CAnimal::DIRECTION()) {
+		if (x == 84) {
+			for (int i = 0; i < 3; i++) {
+				GotoXY(x, y + i);
+				cout << end[i];
 			}
 		}
-		cout << endl;
+		else if (x > 84) return;
+		else {
+			int oldX = x, preX = x + 1;
+			drawDino(preX, y);
+			GotoXY(oldX, y);
+			for (int i = 0; i < 3; i++) {
+				GotoXY(oldX, y + i);
+				cout << del[i];
+			}
+		}
 	}
-	if (x != 1) {
-		for (int i = 1; i < 4; i++) {
-			GotoXY(x - 1, y + i);
-			cout << ' ';
+	else {
+		if (x == 1) {
+			for (int i = 0; i < 3; i++) {
+				GotoXY(x, y + i);
+				cout << end[i];
+			}
+		}
+		else if (x < 1) return;
+		else if (x > 84) {
+			for (int i = 0; i < 3; i++) {
+				GotoXY(91, y);
+				cout << "|";
+			}
+		}
+		else {
+			int oldX = x + 6, preX = x - 1;
+			drawDinoreverse(preX, y);
+			GotoXY(oldX, y);
+			for (int i = 0; i < 3; i++) {
+				GotoXY(oldX, y + i);
+				cout << del[i];
+			}
 		}
 	}
 }
