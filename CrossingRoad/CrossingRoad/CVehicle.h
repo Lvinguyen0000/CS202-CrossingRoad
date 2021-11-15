@@ -4,8 +4,9 @@
 using namespace std;
 
 
-class CVehicle : public CObstacle {
+class CVehicle : protected CObstacle {
 	public:
+		CVehicle();
 		virtual void Move() = 0;
 		virtual void Draw() = 0;
 };

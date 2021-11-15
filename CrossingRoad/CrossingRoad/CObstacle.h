@@ -1,7 +1,6 @@
 #pragma once
-class CObstacle
-{
-private:
+class CObstacle {
+protected:
 	int mX, mY;
 	bool direction;
 	bool light;
