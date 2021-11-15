@@ -3,8 +3,9 @@
 #include "CConsole.h"
 
 class CAnimal : public CObstacle {
-public:
-	virtual void Move(int, int, bool);
-	virtual void Tell() = 0;
+	public:
+		virtual void Move();
+		virtual void Draw();
+		//void Tell();
 };
 

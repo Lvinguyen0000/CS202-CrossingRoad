@@ -7,8 +7,8 @@ public:
 	CBird();
 	~CBird();
 	void Move(int x, int y);
-	bool isOut(int x);
 	void Draw();
+	bool isOut(int x);
 private:
 	char** b;
 };

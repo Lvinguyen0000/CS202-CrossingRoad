@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <deque>
 #include "CObstacle.h"
 #include "CAnimal.h"
@@ -14,12 +14,15 @@
 class CRoad
 {
 private:
-	std::deque<CObstacle*> obs1, obs2, obs3, obs4;
-	bool road1dec, road2dec, road3dec, road4dec;
-	bool redLight;
+	std::deque<CObstacle*> road[4];
+	bool direction[4]; // hướng cho các làn đường
+	bool light[2]; // đèn giao thông 1:red 0: green cho làn 3 và 4
+	int speed; // tốc độ của đường
 public:
-	void randomizedirection();
-	void toggleRedLight();
-	void drawNextState();
+	//CRoad();
+	void SetDir(int index, bool light);
+	void SetLight(int index, bool light);
+	void SetSpeed(int speed);
+	void GenerateNextState();
 };
 

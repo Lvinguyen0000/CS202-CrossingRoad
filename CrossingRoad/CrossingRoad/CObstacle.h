@@ -3,9 +3,11 @@ class CObstacle
 {
 private:
 	int mX, mY;
+	bool direction;
+	bool light;
+	int speed;
 public:
-	bool direction = true;
-	virtual void Move(int, int, bool);
+	CObstacle(int x = 0, int y = 0, bool direction = 0, bool light = 0, int speed = 0);
 
 	void setX(int x) {
 		mX = x;
@@ -20,6 +22,5 @@ public:
 	int getY() {
 		return mY;
 	}
-
 };
 
