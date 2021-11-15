@@ -18,16 +18,10 @@
     <ClInclude Include="CPeople.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CVehicle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CTruck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CCar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CAnimal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CBird.h">
@@ -53,9 +47,6 @@
     <ClCompile Include="CPeople.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CVehicle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,9 +54,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CCar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CAnimal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CBird.cpp">

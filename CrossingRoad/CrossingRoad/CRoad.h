@@ -1,10 +1,11 @@
 ﻿#pragma once
+#include <iostream>
 #include <deque>
 #include "CObstacle.h"
-#include "CAnimal.h"
-#include "CVehicle.h"
 #include "CDinausor.h"
 
+
+using namespace std;
 #define row1Y 7
 #define row2Y 12
 #define row3Y 17

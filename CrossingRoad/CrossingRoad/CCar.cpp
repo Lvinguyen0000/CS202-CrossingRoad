@@ -1,6 +1,6 @@
 #include "CCar.h"
 
-CCar::CCar() : CVehicle() {
+CCar::CCar() : CObstacle() {
 
 }
 

@@ -1,8 +1,8 @@
 #pragma once
-#include "CVehicle.h"
+#include "CObstacle.h"
 #include "CConsole.h"
 
-class CCar : protected CVehicle {
+class CCar : protected CObstacle {
 	public:
 		CCar();
 		void Move();

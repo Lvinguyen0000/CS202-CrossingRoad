@@ -1,8 +1,10 @@
 #pragma once
-#include "CAnimal.h"
 #include<iostream>
+#include "CObstacle.h"
+
 using namespace std;
-class CBird : public CAnimal {
+
+class CBird : protected CObstacle {
 public:
 	CBird();
 	~CBird();

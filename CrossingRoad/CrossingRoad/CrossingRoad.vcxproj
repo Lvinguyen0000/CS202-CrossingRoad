@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CAnimal.h" />
     <ClInclude Include="CBird.h" />
     <ClInclude Include="CCar.h" />
     <ClInclude Include="CConsole.h" />
@@ -149,10 +148,8 @@
     <ClInclude Include="CPeople.h" />
     <ClInclude Include="CRoad.h" />
     <ClInclude Include="CTruck.h" />
-    <ClInclude Include="CVehicle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CAnimal.cpp" />
     <ClCompile Include="CBird.cpp" />
     <ClCompile Include="CCar.cpp" />
     <ClCompile Include="CConsole.cpp" />
@@ -162,7 +159,6 @@
     <ClCompile Include="CPeople.cpp" />
     <ClCompile Include="CRoad.cpp" />
     <ClCompile Include="CTruck.cpp" />
-    <ClCompile Include="CVehicle.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

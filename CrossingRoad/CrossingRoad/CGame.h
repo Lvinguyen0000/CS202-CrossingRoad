@@ -1,9 +1,8 @@
 #pragma once
 #include "CPeople.h"
-#include "CAnimal.h"
+#include "CObstacle.h"
 #include "CBird.h"
 #include "CDinausor.h"
-#include "CVehicle.h"
 #include "CTruck.h"
 #include "CCar.h"
 #include "CRoad.h"

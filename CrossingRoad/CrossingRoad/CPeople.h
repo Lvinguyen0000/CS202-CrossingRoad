@@ -1,6 +1,5 @@
 #pragma once
-#include "CVehicle.h"
-#include "CAnimal.h"
+#include "CObstacle.h"
 #include "CConsole.h"
 
 
