@@ -22,15 +22,15 @@ void CGame::drawGame() {
 		//road.drawNextState();
 		Sleep(50);
 
-		/*if (run < 90) {
-			cd.Move(run, 10);
-			ac.Move(run, 6);
-			truck.Move(run1, 17);
-			car.Move(run1, 22);
-			Sleep(10);
-			run++;
-		}
-		else run = 1; */
+		//if (run < 90) {
+		//	cd.Move(run, 10);
+		//	ac.Move(run, 6);
+		//	truck.Move(run1, 17);
+		//	car.Move(run1, 22);
+		//	Sleep(10);
+		//	run++;
+		//}
+		//else run = 1; 
 
 		move = -1;
 
