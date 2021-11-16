@@ -7,5 +7,8 @@ class CCar : protected CObstacle {
 		CCar();
 		void Move();
 		void Draw();
+		void Left();
+		void Right();
+		bool isOut();
 };
 
