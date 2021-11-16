@@ -21,7 +21,7 @@ private:
 	int speed; // tốc độ của đường
 public:
 	//CRoad();
-	void SetDir(int index, bool light);
+	void SetDir(int index);
 	void SetLight(int index, bool light);
 	void SetSpeed(int speed);
 	void GenerateNextState();
