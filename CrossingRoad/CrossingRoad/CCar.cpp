@@ -8,8 +8,25 @@ void CCar::Move() {
 
 }
 void CCar::Draw() {
-	//if ()
+	string car[3] = {
+		"_/```\\__",
+		"\_ __ _/ ",
+		"  *  *   "
+	};
+
+	string reversedCar[3] = {
+		" __/```\\_",
+		"\\_ ___ _/",
+		"   *   *  ",
+	};
+	if (this->direction) {
+		GotoXY(this->mX, this->mY);
+		for (int i = 0; i < 3; i++) cout << car[i] << endl;
+	}
 }
+
+
+
 	//a = new char* [3];
 	//for (int i = 0; i < 3; i++) {
 	//	a[i] = new char[8];
@@ -36,25 +53,4 @@ void CCar::Draw() {
 	//a[2][5] = '*';
 	//a[1][6] = '_';
 //}
-//void CCar::Move(int x, int y) {
-//	for (int i = 0; i < 3; i++) {
-//		for (int j = 0; j < 8; j++) {
-//			GotoXY(x + j, y + i);
-//			if (x + i + 8 >= 90 || x + i - 8 <= 0) {
-//				cout << ' ';
-//				for (int p = 22; p < 25; p++) {
-//					GotoXY(91, p);
-//					cout << '|';
-//				}
-//			}
-//			else { cout << a[i][j]; }
-//		}
-//		if (x != 1) {
-//			for (int i = 0; i < 3; i++) {
-//				GotoXY(x - 1, y + i);
-//				cout << ' ';
-//			}
-//		}
-//	}
-//	cout << endl;
-//}
+	
