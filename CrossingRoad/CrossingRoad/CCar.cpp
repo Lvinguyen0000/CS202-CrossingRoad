@@ -69,5 +69,10 @@ void CCar::Right() {
 }
 
 bool CCar::isOut() {
-	return (this->mX == 82 || this->mX == 8);
+	if (this->direction == 1) {
+		return(mX > 84 || mX < 2);
+	}
+	else {
+		return (mX < 0 || mX > 84);
+	}
 }
