@@ -7,6 +7,9 @@ public:
 	CDinausor();
 	void Draw();
 	void Move();
+	void Left();
+	void Right();
+	bool isOut();
 };
 
 
