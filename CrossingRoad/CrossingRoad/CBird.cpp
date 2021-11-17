@@ -18,59 +18,64 @@ CBird::~CBird() {
 	delete b;
 }
 
-void CBird::Move() {
-	string del[3] = { " "," "," " };
+void CBird::Left() {
 	string end[3] = { "    ","     ","     " };
-	if (direction) {
-		if (mX < 84) {
-			int oldX = mX, preX = mX + 1;
-			GotoXY(preX, mY);
-			Draw();
-			GotoXY(oldX, mY);
-			for (int i = 0; i < 2; i++) {
-				GotoXY(oldX, mY + i);
-				cout << del[i];
-			}
-		}
-		else if (mX == 84) {
-			for (int i = 0; i < 2; i++) {
-				GotoXY(mX, mY + i);
-				cout << end[i];
-			}
-		}
-		else
-			return;
-	}
-	else {
-		if (mX > 84) {
-			for (int i = 0; i < 2; i++) {
-				GotoXY(91, mY);
-				cout << "|";
-			}
-		}
+	string del = { ' ',' ',' ' };
+	int oldX = mX, oldY = this->mY;
 
-		else if (mX == 1) {
-			for (int i = 0; i < 2; i++) {
-				GotoXY(mX, mY + i);
-				cout << end[i];
-			}
+	mX--;
+
+	if (this->isOut()) {
+		for (int i = 0; i < 2; i++) {
+			GotoXY(oldX, oldY + i);
+			cout << end[i];
 		}
-		else if (mX < 1) return;
-		
-		else {
-			int oldX = mX + 4, preX = mX - 1;
-			GotoXY(preX, mY);
-			Draw();
-			GotoXY(oldX, mY);
-			for (int i = 0; i < 2; i++) {
-				GotoXY(oldX, mY + i);
-				cout << del[i];
-			}
-		}
+		return;
 	}
+
+	this->Draw();
+	for (int i = 0; i < 2; i++) {
+		GotoXY(oldX + 4, oldY + i);
+		cout << del;
+	}
+	Sleep(this->speed);
+}
+
+void CBird::Right() {
+	string end[3] = { "    ","     ","     " };
+	string del = { ' ',' ',' ' };
+	int oldX = mX, oldY = mY;
+
+	mX++;
+
+	if (this->isOut()) {
+		for (int i = 0; i < 2; i++) {
+			GotoXY(oldX - 4, oldY + i);
+			cout << end[i];
+		}
+		return;
+	}
+
+	this->Draw();
+	for (int i = 0; i < 3; i++) {
+		GotoXY(oldX, oldY + i);
+		cout << del;
+	}
+	Sleep(this->speed);
+}
+
+void CBird::Move() {
+	if (direction) {
+		Left();
+	}
+	else
+		Right();
 }
 
 
-bool CBird::isOut(int x) {
-	return (x >= 90);
+bool CBird::isOut() {
+	if (direction)
+		return (mX > 94 || mX < 2);
+	else
+		return (mX < 0 || mX > 84);
 }
