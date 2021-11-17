@@ -11,9 +11,10 @@ public:
 	~CBird();
 	void Move();
 	void Draw();
-	bool isOut(int x);
+	void Left();
+	void Right();
+	bool isOut();
 private:
-	//char** b;
 	string b[2];
 };
 
