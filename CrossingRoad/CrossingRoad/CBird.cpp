@@ -1,9 +1,11 @@
 #include "CBird.h"
 
-CBird::CBird() : CObstacle() {}
+CBird::CBird() : CObstacle() {
+
+}
 
 void CBird::Draw() {
-	b[2] = {
+	string b[2] = {
 		"* *",
 		" * ",
 	};
@@ -12,10 +14,6 @@ void CBird::Draw() {
 	for (int i = 0; i < 2; i++) {
 		cout << b[i];
 	}
-}
-
-CBird::~CBird() {
-	delete b;
 }
 
 void CBird::Left() {
@@ -75,7 +73,7 @@ void CBird::Move() {
 
 bool CBird::isOut() {
 	if (direction)
-		return (mX > 94 || mX < 2);
+		return (mX > 90 || mX < 2);
 	else
 		return (mX < 0 || mX > 84);
 }

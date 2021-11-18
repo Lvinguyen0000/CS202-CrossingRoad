@@ -8,13 +8,10 @@ using namespace std;
 class CBird : public CObstacle {
 public:
 	CBird();
-	~CBird();
 	void Move();
 	void Draw();
 	void Left();
 	void Right();
 	bool isOut();
-private:
-	string b[2];
 };
 
