@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class CTruck: protected CObstacle {
+class CTruck: public CObstacle {
 public:
 	//void DrawTruck(int x, int y);
 	//void DrawTruckReserve(int x, int y);

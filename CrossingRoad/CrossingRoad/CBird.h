@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class CBird : protected CObstacle {
+class CBird : public CObstacle {
 public:
 	CBird();
 	~CBird();

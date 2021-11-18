@@ -2,7 +2,7 @@
 #include "CObstacle.h"
 #include "CConsole.h"
 
-class CDinausor : protected CObstacle {
+class CDinausor : public CObstacle {
 public:
 	CDinausor();
 	void Draw();

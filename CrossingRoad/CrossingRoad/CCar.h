@@ -2,7 +2,7 @@
 #include "CObstacle.h"
 #include "CConsole.h"
 
-class CCar : protected CObstacle {
+class CCar : public CObstacle {
 	public:
 		CCar();
 		void Move();
