@@ -22,6 +22,7 @@ private:
 public:
 	//CRoad();
 	void SetDir();
+	void SetDirection(bool direction);
 	void SetLight(bool light);
 	void SetSpeed(int speed);
 	void GenerateNextState();
