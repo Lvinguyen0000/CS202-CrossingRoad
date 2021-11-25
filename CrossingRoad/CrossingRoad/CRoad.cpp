@@ -1,5 +1,6 @@
 #include "CRoad.h"
 
+
 CRoad::CRoad(int Y) {
 	this->rowY = Y;
 	this->direction = 0;
@@ -26,5 +27,15 @@ void CRoad::ToggleLight() {
 void CRoad::DrawRoad() {
 	for (int i = 0; i < road.size(); i++) {
 		road[i]->Draw();
+	}
+}
+
+bool CRoad::PushObstacle() {
+	CObstacle* newOBS;
+	if (rowY == 1 || rowY == 2) {
+		bool type = rand() % 2;
+		if (type) {
+			newOBS = new CCar;
+		}
 	}
 }

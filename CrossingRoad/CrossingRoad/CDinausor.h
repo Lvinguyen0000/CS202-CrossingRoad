@@ -9,7 +9,8 @@
 
 class CDinausor : public CObstacle {
 public:
-	CDinausor();
+	CDinausor(int x, int y, bool direction, bool light, int speed);
+	~CDinausor() = default;
 	void Draw();
 	void Move();
 	void Left();
