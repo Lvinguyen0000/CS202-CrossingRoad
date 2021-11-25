@@ -1,7 +1,12 @@
 #include "CTruck.h"
 
 CTruck::CTruck(int x, int y, int direction, int light, int speed) : CObstacle(x, y, direction, light, speed) {
-
+	if (this->direction == 1) {
+		this->mX = RIGHT_IN;
+	}
+	else {
+		this->mX = LEFT_IN;
+	}
 }
 void CTruck::Draw() {
 	string Truck[3] = {
