@@ -25,3 +25,16 @@ void CMap::printRow(int index, int width) {
 		cout << '-';
 	}
 }
+
+
+void CMap::PrintLevelUp() {
+
+}
+
+void CMap::PrintDead() {
+
+}
+
+void CMap::PrintFinish() {
+
+}
