@@ -11,7 +11,7 @@ private:
 	vector<CRoad> roads;
 	static int score;
 public:
-	CMap();
+	CMap() = default;
 	void ResetMap();
 	void SaveMap();
 	void DrawObject();
@@ -20,5 +20,8 @@ public:
 	void PrintLevelUp();
 	void PrintDead();
 	void PrintFinish();
+	void printCol(int index, int height);
+	void printRow(int index, int width);
+
 };
 
