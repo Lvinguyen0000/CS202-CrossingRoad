@@ -22,6 +22,6 @@ public:
 	int GetX();
 	int GetY();
 
-	int SetSpeed(int s);
+	void SetSpeed(int s);
 };
 
