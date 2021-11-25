@@ -21,7 +21,8 @@ public:
 	virtual void Draw() = 0;
 	int GetX();
 	int GetY();
-
-	void SetSpeed(int s);
+	void SetDir(bool direction);
+	void SetSpeed(int speed);
+	void SetLight(bool light);
 };
 

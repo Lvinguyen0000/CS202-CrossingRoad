@@ -16,7 +16,14 @@ int CObstacle::GetY() {
 	return this->mY;
 }
 
-void CObstacle::SetSpeed(int s) {
-	speed = s;
+void CObstacle::SetSpeed(int speed) {
+	this->speed = speed;
 }
 
+void CObstacle::SetLight(bool light) {
+	this->light = light;
+}
+
+void CObstacle::SetDir(bool direction) {
+	this->direction = direction;
+}

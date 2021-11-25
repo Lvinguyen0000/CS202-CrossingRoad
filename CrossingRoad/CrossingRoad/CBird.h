@@ -13,7 +13,5 @@ public:
 	void Left();
 	void Right();
 	bool isOut();
-	int GetX();
-	int GetY();
 };
 
