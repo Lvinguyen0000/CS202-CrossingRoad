@@ -19,12 +19,12 @@ private:
 	bool direction; // hướng cho các làn đường 1:left 0:right
 	bool light; // đèn giao thông 1:red 0: green cho làn 3 và 4
 	int speed; // tốc độ của đường
+	int rowY; // độ cao của đường 
 public:
-	//CRoad();
-	void SetDir();
-	void SetDirection(bool direction);
+	CRoad(int Y);
+	void SetDir(bool direction);
 	void SetLight(bool light);
 	void SetSpeed(int speed);
-	void GenerateNextState();
+	void ToggleLight();
 };
 
