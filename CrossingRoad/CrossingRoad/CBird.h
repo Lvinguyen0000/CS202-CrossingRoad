@@ -12,7 +12,8 @@ using namespace std;
 
 class CBird : public CObstacle {
 public:
-	CBird();
+	CBird(int x, int y, bool direction, bool light, int speed);
+	~CBird() = default;
 	void Move();
 	void Draw();
 	void Left();

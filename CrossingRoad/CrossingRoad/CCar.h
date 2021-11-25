@@ -9,7 +9,8 @@
 
 class CCar : public CObstacle {
 public:
-	CCar();
+	CCar(int x, int y, bool direction, bool light, int speed);
+	~CCar() = default;
 	void Move();
 	void Draw();
 	void Left();

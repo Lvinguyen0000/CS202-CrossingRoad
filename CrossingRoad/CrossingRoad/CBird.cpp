@@ -1,6 +1,6 @@
 #include "CBird.h"
 
-CBird::CBird() : CObstacle() {
+CBird::CBird(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
 
 }
 
