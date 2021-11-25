@@ -10,5 +10,6 @@ class CCar : public CObstacle {
 		void Left();
 		void Right();
 		bool isOut();
+		int getWidth();
 };
 

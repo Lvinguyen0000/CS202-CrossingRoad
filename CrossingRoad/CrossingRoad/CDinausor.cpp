@@ -87,3 +87,7 @@ bool CDinausor::isOut() {
 		return (mX > LEFT_OUT || mX < LEFT_IN);
 	}
 }
+
+int CDinausor::getWidth() {
+	return 6;
+}

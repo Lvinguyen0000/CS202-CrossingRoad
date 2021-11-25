@@ -10,6 +10,7 @@ public:
 	void Left();
 	void Right();
 	bool isOut();
+	int getWidth();
 };
 
 

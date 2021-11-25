@@ -19,3 +19,14 @@ void CObstacle::setLight(bool light) {
 	this->light = light;
 }
 
+void CObstacle::SetSpeed(int speed) {
+	this->speed = speed;
+}
+
+void CObstacle::SetLight(bool light) {
+	this->light = light;
+}
+
+void CObstacle::SetDir(bool direction) {
+	this->direction = direction;
+}

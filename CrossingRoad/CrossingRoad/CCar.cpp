@@ -76,3 +76,7 @@ bool CCar::isOut() {
 		return (mX > LEFT_OUT || mX < LEFT_IN);
 	}
 }
+
+int CCar::getWidth() {
+	return 9;
+}
