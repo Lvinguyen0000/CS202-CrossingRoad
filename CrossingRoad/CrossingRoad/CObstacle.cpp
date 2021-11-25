@@ -7,3 +7,12 @@ CObstacle::CObstacle(int x , int y , bool direction , bool light , int speed)  {
 	this->light = light;
 	this->speed = speed;
 }
+
+int CObstacle::GetX() {
+	return this->mX;
+}
+
+int CObstacle::GetY() {
+	return this->mY;
+}
+
