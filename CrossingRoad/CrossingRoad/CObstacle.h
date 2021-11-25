@@ -3,10 +3,7 @@
 using namespace std;
 
 
-#define LEFT_IN 87
-#define LEFT_OUT 3
-#define RIGHT_IN 0
-#define RIGHT_OUT 87
+
 
 
 class CObstacle {
