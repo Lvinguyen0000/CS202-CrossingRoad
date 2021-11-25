@@ -17,8 +17,9 @@ protected:
 	int speed; // truyền vào sleep
 public:
 	CObstacle(int x = 0, int y = 0, bool direction = 0, bool light = 0, int speed = 0);
-
 	virtual void Move() = 0;
 	virtual void Draw() = 0;
+	int GetX();
+	int GetY();
 };
 
