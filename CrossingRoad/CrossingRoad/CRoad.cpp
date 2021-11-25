@@ -22,3 +22,9 @@ void CRoad::SetSpeed(int speed) {
 void CRoad::ToggleLight() {
 	this->light = !this->light;
 }
+
+void CRoad::DrawRoad() {
+	for (int i = 0; i < road.size(); i++) {
+		road[i]->Draw();
+	}
+}

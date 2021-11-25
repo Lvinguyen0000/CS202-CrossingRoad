@@ -3,6 +3,9 @@
 #include <deque>
 #include "CObstacle.h"
 #include "CDinausor.h"
+#include "CBird.h"
+#include "CCar.h"
+#include "CTruck.h"
 
 
 using namespace std;
@@ -10,7 +13,7 @@ using namespace std;
 #define row2Y 12
 #define row3Y 17
 #define row4Y 22
-//etimate do ko nho do cao tung dong
+//estimate do ko nho do cao tung dong
 
 class CRoad
 {
@@ -20,11 +23,14 @@ private:
 	bool light; // đèn giao thông 1:red 0: green cho làn 3 và 4
 	int speed; // tốc độ của đường
 	int rowY; // độ cao của đường 
+	
 public:
 	CRoad(int Y);
 	void SetDir(bool direction);
 	void SetLight(bool light);
 	void SetSpeed(int speed);
 	void ToggleLight();
+	void DrawRoad();
+	bool PushObstacle();
 };
 
