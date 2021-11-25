@@ -21,5 +21,7 @@ public:
 	virtual void Draw() = 0;
 	int GetX();
 	int GetY();
+
+	int SetSpeed(int s);
 };
 
