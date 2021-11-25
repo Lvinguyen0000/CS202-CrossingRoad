@@ -73,7 +73,7 @@ void CBird::Move() {
 
 bool CBird::isOut() {
 	if (direction)
-		return (mX > 90 || mX < 2);
+		return (mX > RIGHT_OUT || mX < RIGHT_IN);
 	else
-		return (mX < 0 || mX > 84);
+		return (mX > LEFT_OUT || mX < LEFT_IN);
 }
