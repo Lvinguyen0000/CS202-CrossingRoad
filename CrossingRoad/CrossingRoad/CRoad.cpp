@@ -32,10 +32,23 @@ void CRoad::DrawRoad() {
 
 bool CRoad::PushObstacle() {
 	CObstacle* newOBS;
-	if (rowY == 1 || rowY == 2) {
+	if (rowY == row1Y || rowY == row2Y) {
 		bool type = rand() % 2;
 		if (type) {
-			newOBS = new CCar;
+			newOBS = new CCar(0, rowY, direction, light, speed);
 		}
+		else newOBS = new CTruck(0, rowY, direction, light, speed);
 	}
+	else if (rowY == row3Y || rowY == row4Y) {
+		bool type = rand() % 2;
+		if (type) {
+			newOBS = new CDinausor(0, rowY, direction, light, speed);
+		}
+		else newOBS = new CBird(0, rowY, direction, light, speed);
+	}
+	else {
+		return false;
+	}
+	road.push_back(newOBS);
+	return true;
 }
