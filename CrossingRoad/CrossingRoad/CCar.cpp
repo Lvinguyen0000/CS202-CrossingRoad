@@ -70,9 +70,9 @@ void CCar::Right() {
 
 bool CCar::isOut() {
 	if (this->direction == 1) {
-		return(mX > 90 || mX < 2);
+		return(mX > RIGHT_OUT || mX < RIGHT_IN);
 	}
 	else {
-		return (mX < 0 || mX > 84);
+		return (mX < LEFT_OUT || mX > LEFT_IN);
 	}
 }
