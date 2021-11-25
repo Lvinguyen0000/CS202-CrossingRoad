@@ -16,3 +16,8 @@ int CObstacle::GetY() {
 	return this->mY;
 }
 
+
+void CObstacle::SetDir(bool direction) {
+	this->direction = direction;
+}
+
