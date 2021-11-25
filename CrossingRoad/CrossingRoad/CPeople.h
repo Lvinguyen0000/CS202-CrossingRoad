@@ -14,10 +14,8 @@ public:
 	void Left();
 	void Right();
 	void Down();
-	//bool isImpact(const CVehicle*&);
-	//bool isImpact(const CAnimal*&);
-	//bool isFinish();
-	//bool isDead();
+	//bool CheckCrash();
+	//bool CheckIsDead();
 };
 
 
