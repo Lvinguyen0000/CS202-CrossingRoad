@@ -16,3 +16,7 @@ int CObstacle::GetY() {
 	return this->mY;
 }
 
+void CObstacle::SetSpeed(int s) {
+	speed = s;
+}
+
