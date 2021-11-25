@@ -1,6 +1,6 @@
 #include "CDinausor.h"
 
-CDinausor::CDinausor(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, spped) {
+CDinausor::CDinausor(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
 
 }
 
