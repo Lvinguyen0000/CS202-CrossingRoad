@@ -21,5 +21,6 @@ public:
 	virtual void Draw() = 0;
 	int GetX();
 	int GetY();
+	void setLight(bool light);
 };
 

@@ -15,4 +15,7 @@ int CObstacle::GetX() {
 int CObstacle::GetY() {
 	return this->mY;
 }
+void CObstacle::setLight(bool light) {
+	this->light = light;
+}
 
