@@ -77,3 +77,7 @@ bool CBird::isOut() {
 	else
 		return (mX > LEFT_OUT || mX < LEFT_IN);
 }
+
+int CBird::getWidth() {
+	return 3;
+}
