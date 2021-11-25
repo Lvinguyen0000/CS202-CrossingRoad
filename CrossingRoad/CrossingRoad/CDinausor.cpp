@@ -84,6 +84,6 @@ bool CDinausor::isOut() {
 		return(mX > RIGHT_OUT || mX < RIGHT_IN);
 	}
 	else {
-		return (mX < LEFT_OUT || mX > LEFT_IN);
+		return (mX > LEFT_OUT || mX < LEFT_IN);
 	}
 }
