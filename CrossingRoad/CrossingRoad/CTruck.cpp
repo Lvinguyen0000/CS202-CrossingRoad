@@ -191,6 +191,12 @@ bool CTruck::isOut() {
 		return (mX > LEFT_OUT || mX < LEFT_IN); // 0 84
 	}
 }
+int CTruck::GetX() {
+	return this->mX;
+}
+int CTruck::GetY() {
+	return this->mY;
+}
 
 
 
