@@ -1,5 +1,8 @@
 #include "CTruck.h"
 
+CTruck::CTruck(int x, int y, int direction, int light, int speed) : CObstacle(x, y, direction, light, speed) {
+
+}
 void CTruck::Draw() {
 	string Truck[3] = {
 	" ___|\\_",//7

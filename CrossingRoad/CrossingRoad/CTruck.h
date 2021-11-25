@@ -10,6 +10,8 @@ using namespace std;
 #define LEFT_OUT 6
 class CTruck: public CObstacle {
 public:
+	CTruck(int x, int y, int direction, int light, int speed);
+	~CTruck() = default;
 	void Draw();
 	void Move();
 	void Left();
