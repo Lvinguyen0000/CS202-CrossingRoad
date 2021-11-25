@@ -77,3 +77,11 @@ bool CBird::isOut() {
 	else
 		return (mX > LEFT_OUT || mX < LEFT_IN);
 }
+
+int CBird::GetX() {
+	return this->mX;
+}
+
+int CBird::GetY() {
+	return this->mY;
+}
