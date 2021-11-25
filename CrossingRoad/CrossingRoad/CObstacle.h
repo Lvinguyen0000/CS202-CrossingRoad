@@ -2,6 +2,13 @@
 #include <iostream>
 using namespace std;
 
+
+#define LEFT_IN 87
+#define LEFT_OUT 87
+#define RIGHT_IN 0
+#define RIGHT_OUT 3
+
+
 class CObstacle {
 protected:
 	int mX, mY;
