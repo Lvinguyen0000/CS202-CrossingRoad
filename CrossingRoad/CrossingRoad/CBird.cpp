@@ -1,7 +1,12 @@
 #include "CBird.h"
 
 CBird::CBird(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
-
+	if (this->direction == 1) {
+		this->mX = RIGHT_IN;
+	}
+	else {
+		this->mX = LEFT_IN;
+	}
 }
 
 void CBird::Draw() {
