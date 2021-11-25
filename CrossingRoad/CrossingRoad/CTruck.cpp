@@ -185,10 +185,10 @@ void CTruck::Move() {
 }
 bool CTruck::isOut() {
 	if (this->direction == 1) {
-		return(mX > 84 || mX < 2);
+		return(mX > RIGHT_OUT || mX < RIGHT_IN); // 84 2
 	}
 	else {
-		return (mX < 0 || mX > 84);
+		return (mX > LEFT_OUT || mX < LEFT_IN); // 0 84
 	}
 }
 
