@@ -11,9 +11,9 @@ private:
 public:
 	CLevel();
 	CLevel(int level, int maxObstacle);
-	int getLevel();
-	bool newLevel(int lv);
-	bool nextLevel();
-	int getSpeed();
+	int GetLevel();
+	bool NewLevel(int lv);
+	bool NextLevel();
+	int GetSpeed();
 };
 
