@@ -73,3 +73,17 @@ void CPeople::Left() {
 	}
 
 }
+
+
+int CPeople::GetX() {
+	return mX;
+}
+
+int CPeople::GetY() {
+	return mY;
+}
+
+void CPeople::SetXY(int x, int y) {
+	mX = x;
+	mY = y;
+}

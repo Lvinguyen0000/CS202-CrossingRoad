@@ -4,7 +4,7 @@
 
 #define LEFT_IN 83
 #define LEFT_OUT 3
-#define RIGHT_IN 0
+#define RIGHT_IN 1
 #define RIGHT_OUT 83
 
 class CDinausor : public CObstacle {

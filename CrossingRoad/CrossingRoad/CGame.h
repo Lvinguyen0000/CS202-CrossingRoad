@@ -7,6 +7,7 @@
 #include "CCar.h"
 #include "CRoad.h"
 #include "CConsole.h"
+#include "CMap.h"
 
 
 class CGame {
@@ -14,17 +15,17 @@ class CGame {
 	//CCar* axh;
 	//CDinausor* akl;
 	//CBird ac;
-	CPeople cn;
+	//CPeople cn;
 	//CDinausor cd;
 	//CTruck truck;
 	//CCar car;
-	CRoad road;
+	CMap map;
 	const int width = 90, height = 30;
 public:
 	CGame();
 	void drawGame();
 	~CGame() = default;
-	CPeople getPeople();
+	//CPeople getPeople();
 	//CVehicle* getVehicle();
 	//CAnimal* getAnimal();
 	//void resetGame();
@@ -38,5 +39,5 @@ public:
 	//void updatePosAnimal();
 };
 
-void printCol(int index, int height);
-void printRow(int index, int width);
+//void printCol(int index, int height);
+//void printRow(int index, int width);

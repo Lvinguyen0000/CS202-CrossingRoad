@@ -16,6 +16,9 @@ public:
 	void Down();
 	//bool CheckCrash();
 	//bool CheckIsDead();
+	int GetX();
+	int GetY();
+	void SetXY(int, int);
 };
 
 

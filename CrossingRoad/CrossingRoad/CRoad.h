@@ -31,6 +31,17 @@ public:
 	void SetSpeed(int speed);
 	void ToggleLight();
 	void DrawRoad();
-	bool PushObstacle();
+	bool Collide(CObstacle*);
+	void PushObstacle(bool, int);
+
+	int getSize();
+	int getDir();
+	int getLight();
+	int getSpeed();
+	int getType(int);
+	int getX(int);
+	int getY(int);
+
+	void PushLoaded(CObstacle*);
 };
 

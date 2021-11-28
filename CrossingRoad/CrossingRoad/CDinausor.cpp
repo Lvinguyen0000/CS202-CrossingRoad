@@ -2,34 +2,34 @@
 
 CDinausor::CDinausor(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
 	if (this->direction == 1) {
-		this->mX = RIGHT_IN;
+		this->mX = LEFT_IN;
 	}
 	else {
-		this->mX = LEFT_IN;
+		this->mX = RIGHT_IN;
 	}
 }
 
 void CDinausor::Draw() {
-	if (direction) {
+	if (!direction) {
 		string dino[3] = {
 			"  /'",
 			" []}.",
 			"/| |",
 		};
-		GotoXY(mX, mY);
 		for (int i = 0; i < 3; i++) {
-			cout << dino[i];
+			GotoXY(mX, mY + i);
+			cout << dino[i] << endl;
 		}
 	}
 	else {
 		string dino[3] = {
 			" '\\ ",
 			".{[] ",
-			" | |\\ ",
+			" | |\\",
 		};
-		GotoXY(mX, mY);
 		for (int i = 0; i < 3; i++) {
-			cout << dino[i];
+			GotoXY(mX, mY + i);
+			cout << dino[i] << endl;
 		}
 	}
 }
@@ -40,51 +40,93 @@ void CDinausor::Move() {
 	else Right();
 }
 
+//void CDinausor::Left() {
+//	string end[3] = { "    ","     ","     " };
+//	string del = { ' ',' ',' ' };
+//	int oldX = mX, oldY = this->mY;
+//
+//	mX--;
+//
+//	if (this->isOut()) {
+//		for (int i = 0; i < 3; i++) {
+//			GotoXY(oldX, oldY + i);
+//			cout << end[i];
+//		}
+//		return;
+//	}
+//
+//	this->Draw();
+//	for (int i = 0; i < 3; i++) {
+//		GotoXY(oldX + 6, oldY + i);
+//		cout << del;
+//	}
+//	Sleep(this->speed);
+//}
+//
+//void CDinausor::Right() {
+//	string end[3] = { "    ","     ","     " };
+//	string del = { ' ',' ',' ' };
+//	int oldX = mX, oldY = mY;
+//
+//	mX++;
+//
+//	if (this->isOut()) {
+//		for (int i = 0; i < 3; i++) {
+//			GotoXY(oldX - 6, oldY + i);
+//			cout << end[i];
+//		}
+//		return;
+//	}
+//
+//	this->Draw();
+//	for (int i = 0; i < 3; i++) {
+//		GotoXY(oldX, oldY + i);
+//		cout << del;
+//	}
+//	Sleep(this->speed);
+//}
+
+
 void CDinausor::Left() {
-	string end[3] = { "    ","     ","     " };
-	string del = { ' ',' ',' ' };
-	int oldX = mX, oldY = this->mY;
-
+	int oldX = mX;
 	mX--;
-
-	if (this->isOut()) {
+	if (mX > 85) return;
+	else if (mX >= 2 && mX < 85) {
+		this->Draw();
 		for (int i = 0; i < 3; i++) {
-			GotoXY(oldX, oldY + i);
-			cout << end[i];
+			GotoXY(oldX + 4, mY + i);
+			cout << " ";
 		}
-		return;
 	}
-
-	this->Draw();
-	for (int i = 0; i < 3; i++) {
-		GotoXY(oldX + 6, oldY + i);
-		cout << del;
+	else if (mX < 2) {
+		for (int i = 0; i < 3; i++) {
+			GotoXY(1, mY + i);
+			cout << "      ";
+		}
 	}
-	Sleep(this->speed);
 }
 
 void CDinausor::Right() {
-	string end[3] = { "    ","     ","     " };
-	string del = { ' ',' ',' ' };
-	int oldX = mX, oldY = mY;
-
+	int oldX = mX;
 	mX++;
+	if (mX < 1) return;
+	else if (mX > 2 && mX < 84) {
 
-	if (this->isOut()) {
+		this->Draw();
 		for (int i = 0; i < 3; i++) {
-			GotoXY(oldX - 6, oldY + i);
-			cout << end[i];
+			GotoXY(oldX, mY + i);
+			cout << " ";
 		}
-		return;
 	}
-
-	this->Draw();
-	for (int i = 0; i < 3; i++) {
-		GotoXY(oldX, oldY + i);
-		cout << del;
+	else if (mX == 84) {
+		for (int i = 0; i < 3; i++) {
+			GotoXY(83, mY + i);
+			cout << "     ";
+		}
 	}
-	Sleep(this->speed);
 }
+
+
 
 bool CDinausor::isOut() {
 	if (direction) {

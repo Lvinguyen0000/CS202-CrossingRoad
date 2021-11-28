@@ -1,11 +1,11 @@
 #include "CTruck.h"
 
-CTruck::CTruck(int x, int y, int direction, int light, int speed) : CObstacle(x, y, direction, light, speed) {
+CTruck::CTruck(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
 	if (this->direction == 1) {
-		this->mX = RIGHT_IN;
+		this->mX = LEFT_IN;
 	}
 	else {
-		this->mX = LEFT_IN;
+		this->mX = RIGHT_IN;
 	}
 }
 void CTruck::Draw() {
@@ -22,63 +22,104 @@ void CTruck::Draw() {
 	if (this->direction == 1) {
 		for (int i = 0; i < 3; i++) {
 			GotoXY(mX, mY + i);
-			cout << ReserveTruck[i];
+			cout << ReserveTruck[i] << endl;
 		}
 	}
 	else {
 		for (int i = 0; i < 3; i++) {
 			GotoXY(mX, mY + i);
-			cout << Truck[i];
+			cout << Truck[i] << endl;
 		}
 	}
 }
+//void CTruck::Right() {
+//	string del = " ";
+//	string end = "        ";
+//	int oldX = this->mX, oldY = this->mY;
+//	if (this->mX == 1) this->Draw();
+//	else if (this->mX > 1 && this->mX < 84) {
+//		this->mX += 1;
+//		GotoXY(mX, mY);
+//		this->Draw();
+//		for (int i = 0; i < 3; i++) {
+//			GotoXY(oldX, mY + i);
+//			cout << del;
+//		}
+//	}
+//	else if (mX == 84) {
+//		this->Draw();
+//		for (int i = 0; i < 3; i++) {
+//			GotoXY(mX, mY + i);
+//			cout << end;
+//			GotoXY(90, mY + i);
+//			cout << "|";
+//		}
+//	}
+//	else return;
+//}
+//void CTruck::Left() {
+//	if (mX > 84) return;
+//	else if (mX == 84) this->Draw();
+//	else if (mX >= 2 && mX < 84) {
+//		int oldX = mX;
+//		mX -= 1;
+//		this->Draw();
+//		for (int i = 0; i < 3; i++) {
+//			GotoXY(oldX + 6, mY + i);
+//			cout << " ";
+//		}
+//	}
+//	else if (mX == 1) {
+//		for (int i = 0; i < 3; i++) {
+//			GotoXY(1, mY + i);
+//			cout << "       ";
+//		}
+//	}
+//}
+
+
 void CTruck::Right() {
-	string del = " ";
-	string end = "        ";
-	int oldX = this->mX, oldY = this->mY;
-	if (this->mX == 1) this->Draw();
-	else if (this->mX > 1 && this->mX < 84) {
-		this->mX += 1;
-		GotoXY(mX, mY);
+	int oldX = mX;
+	mX++;
+	if (mX < 1) return;
+	else if (mX > 2 && mX < 84) {
 		this->Draw();
 		for (int i = 0; i < 3; i++) {
 			GotoXY(oldX, mY + i);
-			cout << del;
+			cout << " ";
 		}
 	}
-	else if (mX == 84) {
-		this->Draw();
+	else if (mX >= 84) {
 		for (int i = 0; i < 3; i++) {
-			GotoXY(mX, mY + i);
-			cout << end;
-			GotoXY(90, mY + i);
-			cout << "|";
+			GotoXY(83, mY + i);
+			cout << "        ";
 		}
 	}
-	else return;
 }
 void CTruck::Left() {
+	int oldX = mX;
+	mX--;
 	if (mX > 84) return;
-	else if (mX == 84) this->Draw();
 	else if (mX >= 2 && mX < 84) {
-		int oldX = mX;
-		mX -= 1;
+
 		this->Draw();
 		for (int i = 0; i < 3; i++) {
 			GotoXY(oldX + 6, mY + i);
 			cout << " ";
 		}
 	}
-	else if (mX == 1) {
+	else if (mX < 2) {
 		for (int i = 0; i < 3; i++) {
 			GotoXY(1, mY + i);
-			cout << "       ";
+			cout << "        ";
 		}
 	}
 }
+
+
 void CTruck::Move() {
 	if (this->light == 1) {
-		this->Draw();
+		//this->Draw();
 		return;
 	}
 	else {
