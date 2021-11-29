@@ -73,8 +73,7 @@ int CMap::readFile(ifstream& infile) {
 }
 
 void CMap::SaveMap(string file) {
-	//"./data/" +
-	ofstream outfile(file + ".bin", ios::out | ios::binary);
+	ofstream outfile("./data/" + file + ".bin", ios::out | ios::binary);
 	printFile(player.GetX(), outfile);
 	printFile(player.GetY(), outfile);
 
@@ -95,8 +94,7 @@ void CMap::SaveMap(string file) {
 
 bool CMap::LoadMap(string file) {
 	this->~CMap();
-	//"./data/" + 
-	ifstream infile(file + ".bin", ios::in | ios::binary);
+	ifstream infile("./data/" + file + ".bin", ios::in | ios::binary);
 	if (!infile.is_open()) {
 		return false;
 	}
