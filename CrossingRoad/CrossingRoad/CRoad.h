@@ -26,6 +26,7 @@ private:
 	
 public:
 	CRoad(int Y);
+	~CRoad();
 	void SetDir(bool direction);
 	void SetLight(bool light);
 	void SetSpeed(int speed);

@@ -10,34 +10,27 @@
 #include "CMap.h"
 
 
-class CGame {
-	//CTruck* axt;
-	//CCar* axh;
-	//CDinausor* akl;
-	//CBird ac;
-	//CPeople cn;
-	//CDinausor cd;
-	//CTruck truck;
-	//CCar car;
-	CMap map;
-	const int width = 90, height = 30;
-public:
-	CGame();
-	void drawGame();
-	~CGame() = default;
-	//CPeople getPeople();
-	//CVehicle* getVehicle();
-	//CAnimal* getAnimal();
-	//void resetGame();
-	//void exitGame(HANDLE);
-	//void startGame();
-	//void loadGame(istream);
-	//void pauseGame(HANDLE);
-	//void resumeGame(HANDLE);
-	//void updatePosPeople(char);
-	//void updatePosVehicle();
-	//void updatePosAnimal();
-};
 
-//void printCol(int index, int height);
-//void printRow(int index, int width);
+
+class CGame {
+	CMap map;
+	bool isMute = 0;
+	bool isPause = 0;
+public:
+	CGame() = default;
+	//void drawGame();
+	~CGame() = default;
+
+	void MenuGame();
+	void NewGame();
+	void SettingGame();
+	void Quit();
+	void SaveGame();
+	void LoadGame();
+	void TogglePause();
+	void ToggleMute();
+	void FinishGame();
+	void GameOver();
+	void CountinueGame();
+	vector<string> getAllFilename(const string& name);
+};

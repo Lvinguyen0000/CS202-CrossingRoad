@@ -9,6 +9,7 @@ private:
 	bool mState; //Trang thai song chet 0: Chet 1: Song
 public:
 	CPeople();
+	~CPeople() = default;
 	void drawPeople(int x = 45, int y = 26);
 	void Up();
 	void Left();

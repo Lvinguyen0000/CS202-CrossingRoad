@@ -1,9 +1,24 @@
 #include "CMap.h"
 
 
-void CMap::PrintBorder() {
-	clrscr();
+CMap::~CMap() {
+	this->player.~CPeople();
+	this->roads.erase(roads.begin(), roads.end());
+}
+
+void CMap::PrintWall() {
 	GotoXY(0, 0);
+	TextColor(15);
+	printCol(0, this->height);
+	printCol(this->width, this->height);
+	printRow(0, this->width);
+	printRow(this->height, this->width);
+}
+
+
+void CMap::PrintBorder() {
+	GotoXY(0, 0);
+	TextColor(15);
 	for (int i = 0; i <= height; i += 5) {
 		printRow(i, this->width);
 	}
@@ -27,8 +42,16 @@ void CMap::printRow(int index, int width) {
 }
 
 
-void CMap::PrintLevelUp() {
-
+void CMap::PrintLoadGame() {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	GotoXY(4, 1); cout << "**      *******      ****     *******" << endl;
+	GotoXY(4, 2); cout << "**     **     **    **  **    **     *" << endl;
+	GotoXY(4, 3); cout << "**     **     **   ********   **      * **     ** ******** **    ** **    **" << endl;
+	GotoXY(4, 4); cout << "****** **     **  **********  **     *  ** * * ** **       ** *  ** **    **" << endl;
+	GotoXY(4, 5); cout << "******  *******  **        ** *******   **  *  ** *******  **  * ** **    **" << endl;
+	GotoXY(4, 6); cout << "                                        **     ** **       **   *** **    **" << endl;
+	GotoXY(4, 7); cout << "                                        **     ** ******** **    ** ********" << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
 }
 
 void CMap::PrintDead() {
@@ -71,6 +94,7 @@ void CMap::SaveMap(string file) {
 }
 
 bool CMap::LoadMap(string file) {
+	this->~CMap();
 	//"./data/" + 
 	ifstream infile(file + ".bin", ios::in | ios::binary);
 	if (!infile.is_open()) {
@@ -123,7 +147,8 @@ void CMap::UseSpeed() {
 	Sleep(this->speed);
 }
 
-void CMap::ResetMap() {
+
+void CMap::CreateObject() {
 	new(&player) CPeople();
 	player.drawPeople();
 	speed = speed5;
@@ -138,7 +163,7 @@ void CMap::ResetMap() {
 }
 
 void CMap::NextState() {
-	int move;
+	TextColor(15);
 	for (int i = 0; i < roads.size(); i++) {
 		if ((roads[i].getLight() && (rand() % 75 == 0)) || (!roads[i].getLight() && (rand() % 50 == 0))) {
 			roads[i].ToggleLight();
@@ -146,34 +171,6 @@ void CMap::NextState() {
 		roads[i].PushObstacle((rand() % 15 == 0), MAX_OBS);
 		roads[i].DrawRoad();
 	}
-	move = -1;
-	if (_kbhit()) {
-		char KEY = _getch();
-		if (KEY == 'w') {
-			move = 1;
-		}
-		else if (KEY == 's') {
-			move = 2;
-		}
-		else if (KEY == 'd') {
-			move = 3;
-		}
-		else if (KEY == 'a') {
-			move = 4;
-		}
-		else if (KEY == 0 || KEY == -32) {
-			KEY = _getch();
-			if (KEY == 72) move = 1;
-			else if (KEY == 80) move = 2;
-			else if (KEY == 77) move = 3;
-			else if (KEY == 75) move = 4;
-		}
-	}
-	if (move == 1) player.Up();
-	else if (move == 2) player.Down();
-	else if (move == 3) player.Right();
-	else if (move == 4) player.Left();
-	this->UseSpeed();
 }
 
 void CMap::AdjustSpeed(int speed) {
@@ -181,4 +178,41 @@ void CMap::AdjustSpeed(int speed) {
 	for (int i = 0; i < roads.size(); i++) {
 		roads[i].SetSpeed(speed);
 	}
+}
+
+
+void CMap::PrintStart() {
+	int color = rand() % 7 + 9;
+	TextColor(color);
+	GotoXY(4, 1); cout << " =====  =======   ======   =====  ===== ==== ===       =======" << endl;
+	GotoXY(4, 2); cout << "||     ||     |  ||	   |  ||     ||	     ||	||  \\   | ||  " << endl;
+	GotoXY(4, 3); cout << "||     ||_____|  ||	   |  ||___  ||___   ||	||   \\  | ||   ====  " << endl;
+	GotoXY(4, 4); cout << "||     ||   \\    ||    |       |     |   ||	||    \\ | ||_____||         	" << endl;
+	GotoXY(4, 5); cout << " =========== \\    ======   ===== =====  ==== ======   ======      /\\      ====\\\\" << endl;
+	GotoXY(4, 6); cout << "                                            ||     | ||    |     // \\    ||	   |" << endl;
+	GotoXY(4, 7); cout << "                                            || ====  ||    |    //   \\   ||	   |" << endl;
+	GotoXY(4, 8); cout << "                                            ||   \\\\  ||    |   //  ===\\  ||	   |" << endl;
+	GotoXY(4, 9); cout << "                                            ||    \\\\  ======  //	   \\  ====//" << endl;
+}
+
+void CMap::CPeopleMove(int move) {
+	if (move == 1) this->player.Up();
+	else if (move == 2) this->player.Down();
+	else if (move == 3) this->player.Right();
+	else if (move == 4) this->player.Left();
+	else return;
+}
+
+void CMap::PrintSetup() {
+	GotoXY(100, 3); cout << "   MANUAL GUIDE   " << endl;
+	GotoXY(100, 4); cout << "[W] [UP] Di len" << endl;
+	GotoXY(100, 5); cout << "[S] [DOWN] Di xuong" << endl;
+	GotoXY(100, 6); cout << "[A] [LEFT] Sang trai" << endl;
+	GotoXY(100, 7); cout << "[D] [RIGHT] Sang phai" << endl;
+
+	GotoXY(100, 11); cout << "[L] Luu game" << endl;
+	GotoXY(100, 12); cout << "[P] Pause/ Countinue Game" << endl;
+	GotoXY(100, 13); cout << "[K} Mute/ Unmute Game" << endl;
+	GotoXY(100, 14); cout << "[M] Tro ve menu" << endl;
+
 }

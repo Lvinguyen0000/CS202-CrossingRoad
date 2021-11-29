@@ -8,6 +8,12 @@ CRoad::CRoad(int Y) {
 	this->speed = 0;
 }
 
+
+CRoad::~CRoad() {
+	this->road.erase(road.begin(), road.end());
+}
+
+
 void CRoad::SetDir(bool direction) {
 	this->direction = direction;
 }

@@ -10,5 +10,5 @@ int main() {
 	FixConsoleWindow();
 	DisableMouse();
 	CGame game;
-	game.drawGame();
+	game.MenuGame();
 }
