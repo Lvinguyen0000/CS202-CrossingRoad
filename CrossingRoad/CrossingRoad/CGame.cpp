@@ -206,7 +206,63 @@ void CGame::SaveGame() {
 }
 
 void CGame::SettingGame() {
+	clrscr();
+	DisableMouse();
+	this->map.PrintWall();
+	string c1[2] = { "Sound: ON ", "Return to main menu" };
+	string c2[2] = { "Sound: OFF", "Return to main menu" };
+	int choice = 0;
+	bool isChangeConsole = false;
+	while (true) {
+		while (true) {
+			for (int i = 0; i < 2; i++) {
+				GotoXY(MID_X, MID_Y + i);
+				if (i == choice) {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+				}
+				else {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				}
 
+				if (this->isMute == false)
+					cout << c1[i] << endl;
+				else
+					cout << c2[i] << endl;
+			}
+
+			this->map.PrintStart();
+
+			if (_kbhit()) {
+				char KEY = _getch();
+				if (KEY == 'w') {
+					choice -= 1;
+					if (choice < 0) choice = 1;
+				}
+				else if (KEY == 's') {
+					choice += 1;
+					if (choice > 1) choice = 0;
+				}
+				else if (KEY == 0 || KEY == -32) {
+					KEY = _getch();
+					if (KEY == 72) {
+						choice -= 1;
+						if (choice < 0) choice = 1;
+					}
+					else if (KEY == 80) {
+						choice += 1;
+						if (choice > 1) choice = 0;
+					}
+				}
+				else if (KEY == 13) {
+					isChangeConsole = true;
+					break;
+				}
+			}
+		}
+		if (choice == 0)
+			this->ToggleMute();
+		else if (choice == 1) this->MenuGame();
+	}
 }
 
 void CGame::Quit() {
