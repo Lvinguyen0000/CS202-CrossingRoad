@@ -15,8 +15,8 @@ public:
 	void Left();
 	void Right();
 	void Down();
-	//bool CheckCrash();
-	//bool CheckIsDead();
+	bool CheckCrash(CObstacle*& c);
+	bool CheckIsDead();
 	int GetX();
 	int GetY();
 	void SetXY(int, int);
