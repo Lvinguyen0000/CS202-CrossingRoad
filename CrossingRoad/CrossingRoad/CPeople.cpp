@@ -87,3 +87,25 @@ void CPeople::SetXY(int x, int y) {
 	mX = x;
 	mY = y;
 }
+
+bool CPeople::CheckCrash(CObstacle*& c) {
+	if (mY == c->GetY()) {
+		// hit from the left
+		if (this->mX >= c->GetX() && this->mX - c->GetX() <= c->getWidth())
+			return true;
+		if (this->mX < c->GetX() && c->GetX() - this->mX < 3)
+			return true;
+
+		// hit from the right
+		if (this->mX <= c->GetX() && c->GetX() - this->mX <= c->getWidth())
+			return true;
+		if (this->mX > c->GetX() && this->mX - c->GetX() < 3)
+			return true;
+	}
+	else
+		return false;
+}
+
+bool CPeople::CheckIsDead() {
+	return mState;
+}
