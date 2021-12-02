@@ -300,3 +300,121 @@ vector<string> CGame::getAllFilename(const string& name)
 	}
 	return v;
 }
+void CGame::GameOver() {
+	clrscr();
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	GotoXY(4, 1); cout << "  ***   *****   **   **   ****    *****    *       *   ****   ****    " << endl;
+	GotoXY(4, 2); cout << "**      *   *   * * * *   *      *     *    *     *    *      *   *   " << endl;
+	GotoXY(4, 3); cout << "* ***   *****   *  *  *   ****   *     *     *   *     ****   ****    " << endl;
+	GotoXY(4, 4); cout << "*  **   *   *   *     *   *      *     *      * *      *      *   *   " << endl;
+	GotoXY(4, 5); cout << " ****   *   *   *     *   ****    *****        *       ****   *     * " << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	int choice = 0;
+	bool isChangeConsole = false;
+	const char* c[2] = { "<Continue>", "<Menu>" };
+
+	while (true) {
+		while (isChangeConsole != true) {
+			for (int i = 0; i < 2; i++) {
+				GotoXY(MID_X, MID_Y + i);
+				if (i == choice) {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+					cout << c[i] << endl;
+				}
+				else {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+					cout << c[i] << endl;
+				}
+			}
+
+			if (_kbhit()) {
+				char KEY = _getch();
+				if (KEY == 'w') {
+					choice -= 1;
+					if (choice < 0) choice = 1;
+				}
+				else if (KEY == 's') {
+					choice += 1;
+					if (choice > 1) choice = 0;
+				}
+				else if (KEY == 0 || KEY == -32) {
+					KEY = _getch();
+					if (KEY == 72) {
+						choice -= 1;
+						if (choice < 0) choice = 1;
+					}
+					else if (KEY == 80) {
+						choice += 1;
+						if (choice > 1) choice = 0;
+					}
+				}
+				else if (KEY == 13) {
+					isChangeConsole = true;
+					break;
+				}
+			}
+		}
+		if (choice == 0) this->NewGame();
+		else if (choice == 1) this->MenuGame();
+	}
+}
+void CGame::FinishGame() {
+	clrscr();
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	GotoXY(4, 1); cout << "*    *   **    *****   ***** " << endl;
+	GotoXY(4, 2); cout << "* *  *   **   *        *     " << endl;
+	GotoXY(4, 3); cout << "*  * *   **   *        ***** " << endl;
+	GotoXY(4, 4); cout << "*   **   **   *        *     " << endl;
+	GotoXY(4, 5); cout << "*    *   **    *****   ***** " << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	int choice = 0;
+	bool isChangeConsole = false;
+	const char* c[2] = { "<Next level>", "<Menu>" };
+
+	while (true) {
+		while (isChangeConsole != true) {
+			for (int i = 0; i < 2; i++) {
+				GotoXY(MID_X, MID_Y + i);
+				if (i == choice) {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+					cout << c[i] << endl;
+				}
+				else {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+					cout << c[i] << endl;
+				}
+			}
+
+			if (_kbhit()) {
+				char KEY = _getch();
+				if (KEY == 'w') {
+					choice -= 1;
+					if (choice < 0) choice = 1;
+				}
+				else if (KEY == 's') {
+					choice += 1;
+					if (choice > 1) choice = 0;
+				}
+				else if (KEY == 0 || KEY == -32) {
+					KEY = _getch();
+					if (KEY == 72) {
+						choice -= 1;
+						if (choice < 0) choice = 1;
+					}
+					else if (KEY == 80) {
+						choice += 1;
+						if (choice > 1) choice = 0;
+					}
+				}
+				else if (KEY == 13) {
+					isChangeConsole = true;
+					break;
+				}
+			}
+		}
+		if (choice == 0) {
+			//update game moi voi level ke tiep
+		}
+		else if (choice == 1) this->MenuGame();
+	}
+}
