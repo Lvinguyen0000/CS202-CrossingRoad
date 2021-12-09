@@ -122,7 +122,7 @@ bool CMap::LoadMap(string file) {
 	speed = readFile(infile);
 
 	for (int i = 0; i < 4; i++) {
-		CRoad rod(row1Y + 5 * i);
+		CRoad rod(row4Y - i * 5);
 		roads.push_back(rod);
 		int dir, light, speed;
 		dir = readFile(infile);

@@ -1,6 +1,5 @@
 #include "CGame.h"
 #include <mmsystem.h>
-#include <string>
 
 static CMap map;
 static bool isMute = 0;

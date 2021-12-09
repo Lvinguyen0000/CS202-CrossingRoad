@@ -1,11 +1,14 @@
 #include "CDinausor.h"
 
 CDinausor::CDinausor(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
-	if (this->direction == 1) {
-		this->mX = LEFT_IN;
-	}
+	if (x != 0) this->mX = x;
 	else {
-		this->mX = RIGHT_IN;
+		if (this->direction == 1) {
+			this->mX = LEFT_IN;
+		}
+		else {
+			this->mX = RIGHT_IN;
+		}
 	}
 }
 
@@ -39,53 +42,6 @@ void CDinausor::Move() {
 	if (direction) Left();
 	else Right();
 }
-
-//void CDinausor::Left() {
-//	string end[3] = { "    ","     ","     " };
-//	string del = { ' ',' ',' ' };
-//	int oldX = mX, oldY = this->mY;
-//
-//	mX--;
-//
-//	if (this->isOut()) {
-//		for (int i = 0; i < 3; i++) {
-//			GotoXY(oldX, oldY + i);
-//			cout << end[i];
-//		}
-//		return;
-//	}
-//
-//	this->Draw();
-//	for (int i = 0; i < 3; i++) {
-//		GotoXY(oldX + 6, oldY + i);
-//		cout << del;
-//	}
-//	Sleep(this->speed);
-//}
-//
-//void CDinausor::Right() {
-//	string end[3] = { "    ","     ","     " };
-//	string del = { ' ',' ',' ' };
-//	int oldX = mX, oldY = mY;
-//
-//	mX++;
-//
-//	if (this->isOut()) {
-//		for (int i = 0; i < 3; i++) {
-//			GotoXY(oldX - 6, oldY + i);
-//			cout << end[i];
-//		}
-//		return;
-//	}
-//
-//	this->Draw();
-//	for (int i = 0; i < 3; i++) {
-//		GotoXY(oldX, oldY + i);
-//		cout << del;
-//	}
-//	Sleep(this->speed);
-//}
-
 
 void CDinausor::Left() {
 	int oldX = mX;

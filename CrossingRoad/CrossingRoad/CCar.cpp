@@ -1,11 +1,14 @@
 #include "CCar.h"
 
 CCar::CCar(int x, int y, bool direction, bool light, int speed) : CObstacle(x, y, direction, light, speed) {
-	if (this->direction == 1) {
-		this->mX = LEFT_IN;
-	}
+	if (x != 0) this->mX = x;
 	else {
-		this->mX = RIGHT_IN;
+		if (this->direction == 1) {
+			this->mX = LEFT_IN;
+		}
+		else {
+			this->mX = RIGHT_IN;
+		}
 	}
 }
 
@@ -38,7 +41,6 @@ void CCar::Draw() {
 
 void CCar::Move() {
 	if (this->light == 1) {
-		//this->Draw();
 		return;
 	}
 	else {
@@ -50,33 +52,6 @@ void CCar::Move() {
 		}
 	}
 }
-
-//void CCar::Left() {
-//	string del = { ' ',' ',' ' };
-//	int oldX = this->mX; int oldY = this->mY;
-//
-//	this->mX -= 1;
-//	if (this->isOut()) return;
-//	this->Draw();
-//	for (int i = 0; i < 3; i++) {
-//		GotoXY(oldX + 9, oldY + i);
-//		cout << del;
-//	}
-//}
-//	
-//void CCar::Right() {
-//	string del = { ' ',' ',' ' };
-//	int oldX = this->mX; int oldY = this->mY;
-//
-//	this->mX += 1;
-//	if (this->isOut()) return;
-//	this->Draw();
-//	for (int i = 0; i < 3; i++) {
-//		GotoXY(oldX , oldY + i);
-//		cout << del;
-//	}
-//	Sleep(this->speed);
-//}
 
 void CCar::Left() {
 	int oldX = mX;
