@@ -3,7 +3,7 @@
 
 CMap::~CMap() {
 	this->player.~CPeople();
-	this->roads.erase(roads.begin(), roads.end());
+	this->roads.clear();
 }
 
 void CMap::PrintWall() {
@@ -54,6 +54,22 @@ void CMap::PrintLoadGame() {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
 }
 
+void CMap::PrintSaveGame() {
+	clrscr();
+	PrintWall();
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	GotoXY(4, 1); cout << "*******        **** **    ** ******* " << endl;
+	GotoXY(4, 2); cout << " **          **  **  **   ** ** " << endl;
+	GotoXY(4, 3); cout << "   **      ********   **  ** *******    **     ** ******** **    ** **    **  " << endl;
+	GotoXY(4, 4); cout << "     **   **     **    ** ** **         ** * * ** **       ** *  ** **    ** " << endl;
+	GotoXY(4, 5); cout << "******   *       **     **** *******    **  *  ** *******  **  * ** **    **  " << endl;
+	GotoXY(4, 6); cout << "                                        **     ** **       **   *** **    **   " << endl;
+	GotoXY(4, 7); cout << "                                        **     ** ******** **    ** ********  " << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	GotoXY(4, 15);
+	cout << "<Press ESC to escape>";
+}
+
 void CMap::PrintDead() {
 
 }
@@ -76,6 +92,7 @@ void CMap::SaveMap(string file) {
 	ofstream outfile("./data/" + file + ".bin", ios::out | ios::binary);
 	printFile(player.GetX(), outfile);
 	printFile(player.GetY(), outfile);
+	printFile(speed, outfile);
 
 	for (int i = 0; i < roads.size(); i++) {
 		printFile(roads[i].getDir(), outfile);
@@ -94,7 +111,7 @@ void CMap::SaveMap(string file) {
 
 bool CMap::LoadMap(string file) {
 	this->~CMap();
-	ifstream infile("./data/" + file + ".bin", ios::in | ios::binary);
+	ifstream infile("./data/" + file, ios::in | ios::binary);
 	if (!infile.is_open()) {
 		return false;
 	}
@@ -102,9 +119,11 @@ bool CMap::LoadMap(string file) {
 	playerX = readFile(infile);
 	playerY = readFile(infile);
 	player.SetXY(playerX, playerY);
+	speed = readFile(infile);
 
 	for (int i = 0; i < 4; i++) {
-		new(&roads[i]) CRoad(row1Y + 5*i);
+		CRoad rod(row1Y + 5 * i);
+		roads.push_back(rod);
 		int dir, light, speed;
 		dir = readFile(infile);
 		light = readFile(infile);
@@ -149,13 +168,13 @@ void CMap::UseSpeed() {
 void CMap::CreateObject() {
 	new(&player) CPeople();
 	player.drawPeople();
-	speed = speed5;
+	speed = speedy;
 	srand(time(0));
 	for (int i = 0; i < 4; i++) {
 		CRoad rod(row4Y - i * 5);
 		rod.SetDir(rand() % 2);
 		rod.SetLight(0);
-		rod.SetSpeed(speed1);
+		rod.SetSpeed(speedy);
 		roads.push_back(rod);
 	}
 }
@@ -210,7 +229,42 @@ void CMap::PrintSetup() {
 
 	GotoXY(100, 11); cout << "[L] Luu game" << endl;
 	GotoXY(100, 12); cout << "[P] Pause/ Countinue Game" << endl;
-	GotoXY(100, 13); cout << "[K} Mute/ Unmute Game" << endl;
+	GotoXY(100, 13); cout << "[K] Mute/ Unmute Game" << endl;
 	GotoXY(100, 14); cout << "[M] Tro ve menu" << endl;
 
+}
+
+void CMap::PrintCollide() {
+	string collide[3] = {
+	"\\|/",
+	"-o-",
+	"/|\\",
+	};
+	for (int i = 0; i < 3; i++) {
+		GotoXY(this->player.GetX(), this->player.GetY() + i);
+		cout << collide[i] << endl;
+		Sleep(500);
+	}
+
+}
+
+
+CPeople& CMap::GetPeople() {
+	return this->player;
+}
+
+bool CMap::CheckCrash() {
+	for (int i = 0; i < this->roads.size(); i++) {
+		for (int j = 0; j < this->roads[i].getSize(); j++) {
+			if (this->player.CheckImpact(this->roads[i].GetObstacle(j))) {
+				PrintCollide();
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void CMap::PrintPeople() {
+	this->player.drawPeople();
 }

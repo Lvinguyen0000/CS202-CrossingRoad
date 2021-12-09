@@ -1,4 +1,5 @@
 #pragma once
+#include <deque>
 #include "CObstacle.h"
 #include "CConsole.h"
 
@@ -15,11 +16,13 @@ public:
 	void Left();
 	void Right();
 	void Down();
-	bool CheckCrash(CObstacle*& c);
+	bool CheckIsFinished();
+	bool CheckImpact(CObstacle*& c);
 	bool CheckIsDead();
 	int GetX();
 	int GetY();
 	void SetXY(int, int);
+	void Kill();
 };
 
 

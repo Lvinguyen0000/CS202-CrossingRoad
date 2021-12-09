@@ -44,5 +44,6 @@ public:
 	int getY(int);
 
 	void PushLoaded(CObstacle*);
+	CObstacle*& GetObstacle(int i);
 };
 

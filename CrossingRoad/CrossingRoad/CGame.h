@@ -8,29 +8,20 @@
 #include "CRoad.h"
 #include "CConsole.h"
 #include "CMap.h"
+#include <thread>
+
+using namespace std;
 
 
+void MenuGame();
+void SettingGame();
+void Quit(thread& t);
+void SaveGame();
+void LoadGame();
+void TogglePause();
+void ToggleMute();
+void FinishGame();
+void GameOver();
 
+vector<string> getAllFilename(const string& name);
 
-class CGame {
-	CMap map;
-	bool isMute = 0;
-	bool isPause = 0;
-public:
-	CGame() = default;
-	//void drawGame();
-	~CGame() = default;
-
-	void MenuGame();
-	void NewGame();
-	void SettingGame();
-	void Quit();
-	void SaveGame();
-	void LoadGame();
-	void TogglePause();
-	void ToggleMute();
-	void FinishGame();
-	void GameOver();
-	void CountinueGame();
-	vector<string> getAllFilename(const string& name);
-};

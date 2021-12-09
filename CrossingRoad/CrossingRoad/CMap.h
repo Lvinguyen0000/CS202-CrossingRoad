@@ -12,11 +12,7 @@
 #include "CBird.h"
 #include "CConsole.h"
 
-#define speed1 150
-#define speed2 100
-#define speed3 75
-#define speed4 25
-#define speed5 10
+#define speedy 25
 #define MAX_OBS 5
 
 #define MID_X 34
@@ -28,6 +24,7 @@ private:
 	CPeople player;
 	vector<CRoad> roads;
 	int speed;
+
 public:
 	CMap() : width(90), height(30) {};
 	~CMap();
@@ -46,15 +43,22 @@ public:
 	void PrintBorder();
 	void PrintStart();
 	void PrintLoadGame();
+	void PrintSaveGame();
 	void PrintDead();
 	void PrintFinish();
 	void printCol(int index, int height);
 	void printRow(int index, int width);
 	void PrintSetup();
+	void PrintCollide();
+	void PrintPeople();
 
 
 
 	void printFile(int x, ofstream& outfile);
 	int readFile(ifstream& infile);
+
+	bool CheckCrash();
+	CPeople& GetPeople();
+
 };
 

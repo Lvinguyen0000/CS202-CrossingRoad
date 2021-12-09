@@ -10,7 +10,7 @@ CRoad::CRoad(int Y) {
 
 
 CRoad::~CRoad() {
-	this->road.erase(road.begin(), road.end());
+	this->road.clear();
 }
 
 
@@ -51,10 +51,10 @@ int CRoad::getSpeed() {
 }
 
 int CRoad::getType(int i) {
-	if (typeid(road[i]) == typeid(CCar)) return 1;
-	else if (typeid(road[i]) == typeid(CTruck)) return 2;
-	else if (typeid(road[i]) == typeid(CDinausor)) return 3;
-	else if (typeid(road[i]) == typeid(CBird)) return 4;
+	if (road[i]->getWidth() == 10) return 1;
+	else if (road[i]->getWidth() == 8) return 2;
+	else if (road[i]->getWidth() == 6) return 3;
+	else if (road[i]->getWidth() == 3) return 4;
 }
 
 int CRoad::getX(int i) {
@@ -104,13 +104,38 @@ void CRoad::PushObstacle(bool add, int max) {
 
 
 void CRoad::DrawRoad() {
+	if (rowY == row3Y) {
+		if (light) {
+			GotoXY(92, row3Y);
+			TextColor(12);
+			cout << char(254);
+		}
+		else {
+			GotoXY(92, row3Y);
+			TextColor(10);
+			cout << char(254);
+		}
+	}
+	else if (rowY == row4Y) {
+		 if (light) {
+			GotoXY(92, row4Y);
+			TextColor(12);
+			cout << char(254);
+		 }
+		 else {
+			GotoXY(92, row4Y);
+			TextColor(10);
+			cout << char(254);
+		 }
+	}
+	TextColor(7);
 	for (int i = 0; i < road.size(); i++) {
 		if (direction) {
 			if (road[i]->GetX() != 0) {
 				road[i]->Move();
 			}
 			else {
-				delete road.front();
+				road.front()->~CObstacle();
 				road.pop_front();
 			}
 		}
@@ -119,9 +144,13 @@ void CRoad::DrawRoad() {
 				road[i]->Move();
 			}
 			else {
-				delete road.front();
+				road.front()->~CObstacle();
 				road.pop_front();
 			}
 		}
 	}
+}
+
+CObstacle*& CRoad::GetObstacle(int i) {
+	return this->road[i];
 }

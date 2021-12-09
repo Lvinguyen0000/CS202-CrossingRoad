@@ -4,6 +4,7 @@ CPeople::CPeople() : mX(44), mY(27) {
 	mState = 1;
 }
 
+
 void CPeople::drawPeople(int x, int y) {
 	if (mState == 0) return;
 	string man[3] = {
@@ -88,24 +89,24 @@ void CPeople::SetXY(int x, int y) {
 	mY = y;
 }
 
-bool CPeople::CheckCrash(CObstacle*& c) {
-	if (mY == c->GetY()) {
-		// hit from the left
-		if (this->mX >= c->GetX() && this->mX - c->GetX() <= c->getWidth())
+bool CPeople::CheckImpact(CObstacle*& c) {
+	if (c->GetY() >= this->mY && c->GetY() -5 < this->mY) {
+		if (this->mX > c->GetX() && this->mX - c->GetX() < c->getWidth())
 			return true;
-		if (this->mX < c->GetX() && c->GetX() - this->mX < 3)
-			return true;
-
-		// hit from the right
-		if (this->mX <= c->GetX() && c->GetX() - this->mX <= c->getWidth())
-			return true;
-		if (this->mX > c->GetX() && this->mX - c->GetX() < 3)
+		else if (this->mX < c->GetX() && c->GetX() - this->mX < 3)
 			return true;
 	}
-	else
-		return false;
+	return false;
 }
 
 bool CPeople::CheckIsDead() {
-	return mState;
+	return !mState;
+}
+
+bool CPeople::CheckIsFinished() {
+	return (this->mY < 4);
+}
+
+void CPeople::Kill() {
+	this->mState = false;
 }

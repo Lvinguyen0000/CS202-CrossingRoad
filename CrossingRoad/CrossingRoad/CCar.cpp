@@ -129,5 +129,5 @@ bool CCar::isOut() {
 }
 
 int CCar::getWidth() {
-	return 9;
+	return 10;
 }
