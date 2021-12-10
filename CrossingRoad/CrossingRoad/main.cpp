@@ -380,12 +380,7 @@ void Game() {
 			map.PrintPeople();
 		}
 		else if (move == 6) {
-			Load = thread(LoadGame);
-			Load.join();
-			clrscr();
-			map.PrintBorder();
-			map.PrintSetup();
-			map.PrintPeople();
+			TogglePause();
 		}
 		else if (move == 7) {
 			ToggleMute();
