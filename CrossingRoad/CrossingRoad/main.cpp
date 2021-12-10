@@ -6,6 +6,7 @@ static bool isMute = 0;
 static bool isPause = 0;
 static bool isLose = 0;
 static bool isLoad = 0;
+static bool isMenu = 0;
 static int choice = -1;
 
 
@@ -299,11 +300,19 @@ void FinishGame() {
 }
 
 
+void SoundEffect() {
+	while (!isMute && !map.GetPeople().CheckIsDead()) {
+		PlaySound(TEXT("game2.wav"), NULL, SND_FILENAME | SND_ASYNC);
+		Sleep(60000);
+	}
+}
+
 
 void Game() {
 	clrscr();
 	thread Save;
 	thread Load;
+
 	map.PrintBorder();
 	if (!isLoad) map.CreateObject();
 	else {
@@ -312,14 +321,16 @@ void Game() {
 	}
 	map.PrintSetup();
 	int move = -1;
-	if (!isMute) PlaySound(TEXT("game2.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	
+	thread Sound(SoundEffect);
+
 
 	while (true) {
-		if (map.GetPeople().CheckIsFinished()) break;
 		if (isPause == 0) map.NextState();
 		if (map.CheckCrash()) {
 			if (!isMute) PlaySound(TEXT("death.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			map.GetPeople().Kill();
+			Quit(Sound);
 			break;
 		}
 
@@ -382,7 +393,9 @@ void Game() {
 			else if (isMute) PlaySound(NULL, 0, 0);
 		}
 		else if (move == 8) {
+			isMenu = 1;
 			map.~CMap();
+			Quit(Sound);
 			return;
 		}
 		move = -1;
@@ -410,7 +423,10 @@ int main() {
 		if (choice == 0) {
 			game = thread{ Game };
 			game.join();
-			if (map.GetPeople().CheckIsDead()) {
+			if (isMenu) {
+				isMenu = 0;
+			}
+			else if (map.GetPeople().CheckIsDead()) {
 				thread lose(GameOver);
 				lose.join();
 			}
@@ -424,7 +440,10 @@ int main() {
 			Load.join();
 			game = thread{ Game };
 			game.join();
-			if (map.GetPeople().CheckIsDead()) {
+			if (isMenu) {
+				isMenu = 0;
+			}
+			else if (map.GetPeople().CheckIsDead()) {
 				thread lose(GameOver);
 				lose.join();
 			}

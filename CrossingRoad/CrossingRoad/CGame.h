@@ -22,6 +22,7 @@ void TogglePause();
 void ToggleMute();
 void FinishGame();
 void GameOver();
+void SoundEffect();
 
 vector<string> getAllFilename(const string& name);
 

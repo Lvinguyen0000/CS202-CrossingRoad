@@ -5,7 +5,7 @@
 
 using namespace std;
 #define RIGHT_IN 1 //0
-#define RIGHT_OUT 83
+#define RIGHT_OUT 84
 #define LEFT_IN 83
 #define LEFT_OUT 2 //6
 class CTruck: public CObstacle {
