@@ -16,7 +16,6 @@ public:
 	void Move();
 	void Left();
 	void Right();
-	bool isOut();
 	int getWidth();
 	
 };

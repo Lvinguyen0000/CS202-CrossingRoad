@@ -83,16 +83,6 @@ void CDinausor::Right() {
 }
 
 
-
-bool CDinausor::isOut() {
-	if (direction) {
-		return(mX > RIGHT_OUT || mX < RIGHT_IN);
-	}
-	else {
-		return (mX > LEFT_OUT || mX < LEFT_IN);
-	}
-}
-
 int CDinausor::getWidth() {
 	return 6;
 }

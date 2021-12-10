@@ -87,14 +87,7 @@ void CTruck::Move() {
 		return;
 	}
 }
-bool CTruck::isOut() {
-	if (this->direction == 1) {
-		return(mX > RIGHT_OUT || mX < RIGHT_IN); // 84 2
-	}
-	else {
-		return (mX > LEFT_OUT || mX < LEFT_IN); // 0 84
-	}
-}
+
 
 int CTruck::getWidth() {
 	return 8;

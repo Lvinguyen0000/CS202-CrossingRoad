@@ -72,13 +72,6 @@ void CBird::Move() {
 }
 
 
-bool CBird::isOut() {
-	if (direction)
-		return (mX > RIGHT_OUT || mX < RIGHT_IN);
-	else
-		return (mX > LEFT_OUT || mX < LEFT_IN);
-}
-
 int CBird::getWidth() {
 	return 3;
 }

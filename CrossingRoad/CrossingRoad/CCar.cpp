@@ -94,15 +94,6 @@ void CCar::Right() {
 }
 
 
-bool CCar::isOut() {
-	if (this->direction == 1) {
-		return(mX > RIGHT_OUT || mX < RIGHT_IN);
-	}
-	else {
-		return (mX > LEFT_OUT || mX < LEFT_IN);
-	}
-}
-
 int CCar::getWidth() {
 	return 10;
 }

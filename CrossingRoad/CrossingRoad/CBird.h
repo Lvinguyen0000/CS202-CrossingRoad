@@ -18,7 +18,6 @@ public:
 	void Draw();
 	void Left();
 	void Right();
-	bool isOut();
 	int getWidth();
 };
 
