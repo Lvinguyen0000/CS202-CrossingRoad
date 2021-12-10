@@ -326,7 +326,10 @@ void Game() {
 
 
 	while (true) {
-		if (map.GetPeople().CheckIsFinished()) break;
+		if (map.GetPeople().CheckIsFinished()) {
+			Quit(Sound);
+			break;
+		}
 		if (isPause == 0) map.NextState();
 		if (map.CheckCrash()) {
 			if (!isMute) PlaySound(TEXT("death.wav"), NULL, SND_FILENAME | SND_ASYNC);
